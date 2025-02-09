@@ -1,0 +1,43 @@
+{
+  "name": "chrome-extension-starter-ts-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --sourceMap --inlineSources && vite build --sourcemap=inline",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "hast-util-from-html": "^2.0.3",
+    "hast-util-to-html": "^9.0.4",
+    "hast-util-to-mdast": "^10.1.2",
+    "mdast-util-gfm": "^3.0.0",
+    "mdast-util-to-markdown": "^2.1.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mdxeditor/editor": "^3.21.2",
+    "@mdxeditor/gurx": "^1.2.3",
+    "@types/chrome": "^0.0.248",
+    "@types/node": "^22.13.1",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^8.23.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "eslint": "^9.20.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "prettier": "^3.0.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "PromptMark",
+  "version": "1.0",
+  "description": "Quickly convert rich text into markdown for AI prompts",
+  "permissions": [
+    "storage",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "default_locale": "en",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline';  font-src 'self'; img-src 'self' https:; connect-src 'none'"
+  }
+}
