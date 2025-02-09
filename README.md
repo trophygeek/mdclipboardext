@@ -1,6 +1,4 @@
-# PromptMark Extension
-
-
+#  mdclipboardext - Markdown Clipboard Chrome Extension
 
 This project is really just a Chrome Extension wrapper on other open source projects:
 - [MDXEditor](https://github.com/mdx-editor/editor)
@@ -29,10 +27,10 @@ A core aspect is maintaining privacy:
 
 ## Tech stack
 
+- **Manifest V3:** Uses the latest Chrome Extension manifest version.
 - **TypeScript:** Strongly typed language for safer and more maintainable code.
 - **Vite:** Extremely fast build tool for rapid development.
 - **Yarn:** Fast and reliable package manager.
-- **Manifest V3:** Uses the latest Chrome Extension manifest version.
 - **Popup:** A simple popup that appears when the extension icon is clicked.
 - **Options Page:** A dedicated page for user settings and configuration.
 - **Linting (ESLint):** Ensures code quality and consistency.
@@ -105,11 +103,3 @@ A core aspect is maintaining privacy:
 - `vite.config.ts`: Vite configuration.
 - `.eslintrc.cjs`: ESLint configuration.
 - `.prettierrc.json`: Prettier configuration.
-
-## Customization
-
-- **Manifest:** Modify `public/manifest.json` to change the extension's name, description, icons, and permissions.
-- **Background Worker:** Add your background logic to `src/background.ts`.
-- **Popup:** Customize the popup's UI and functionality in `src/popup/`.
-- **Options Page:** Customize the options page's UI and functionality in `src/options/`.
-- **Content Scripts:** Add or modify content scripts in `src/` to interact with specific web pages.
