@@ -48,8 +48,8 @@ A core aspect is maintaining privacy:
 1.  **Clone the repository:**
 
     ```bash
-    git clone <your-repository-url>
-    cd chrome-extension-starter-ts-vite
+    git clone https://github.com/trophygeek/mdclipboardext
+    cd mdclipboardext
     ```
 
 2.  **Install dependencies:**
