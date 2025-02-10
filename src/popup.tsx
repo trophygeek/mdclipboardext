@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import ReactDOM from "react-dom/client";
 import { htmlToMarkdown } from "./utils";
 
@@ -10,6 +10,7 @@ const Popup: React.FC = () => {
   const [modifiedText, setModifiedText] = useState("");
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState('');
+  const recurrenceRef = useRef<boolean>(false);
 
   const showNotificationMsg = (msg: string) => {
     setNotificationMessage(msg);
@@ -17,6 +18,39 @@ const Popup: React.FC = () => {
     setTimeout(() => setShowNotification(false), 3000); // Hide the notification after 3 seconds
   };
 
+  useEffect(() => {
+    loadSaved();
+    chrome.storage.session.onChanged.addListener(() => {
+      if (!recurrenceRef.current) {
+        // maybe we should confirm before reloading?
+        loadSaved();
+      }
+    });
+  }, []);
+
+  const loadSaved = async () => {
+    if (recurrenceRef.current) {
+      return;
+    }
+    recurrenceRef.current = true;
+    const data = await chrome.storage.session.get("currentMarkdown");
+    // eslint-disable-next-line no-debugger
+    if (data.currentMarkdown) {
+      setModifiedText(data.currentMarkdown);
+    }
+    recurrenceRef.current = false;
+    return data.currentMarkdown;
+  };
+
+  const handleSave = (value: string) => {
+    if (recurrenceRef.current) {
+      return;
+    }
+    recurrenceRef.current = true;
+    chrome.storage.session.set({currentMarkdown: value}, () => {
+      recurrenceRef.current = false;
+    });
+  };
 
   const handleCopyModifyPaste = async () => {
     try {
@@ -25,15 +59,16 @@ const Popup: React.FC = () => {
         s.types.includes("text/html"),
       );
       if (!clipboardItem) {
-        // it's already text, do nothing. Notify?
+        showNotificationMsg("No rich text found in clipboard. Already converted?");
         return;
       }
       const blob = await clipboardItem.getType("text/html");
       const htmlText = await blob?.text() ?? "";
 
       if (htmlText === "") {
+        showNotificationMsg("No rich text found in clipboard.");
         setModifiedText(
-          "No text found in clipboard. Copy rich text from a web page or document first.",
+          "Only plain text found in clipboard. Copy rich text from a web page or document first.",
         );
         return;
       }
@@ -41,6 +76,7 @@ const Popup: React.FC = () => {
       // --- Modify the text (Example: convert to uppercase) ---
       const markdownText = htmlToMarkdown(htmlText);
       if (markdownText === "") {
+        showNotificationMsg("No rich text found in clipboard.");
         setModifiedText(
           "No text found in clipboard. Copy rich text from a web page or document first.",
         );
@@ -51,6 +87,7 @@ const Popup: React.FC = () => {
       await navigator.clipboard.writeText(markdownText);
       chrome.storage.session.set({ currentMarkdown: markdownText }, () => {
         showNotificationMsg("Clipboard updated successfully. Paste to see results.");
+        handleSave(markdownText);
       });
     } catch (err) {
       console.error("Failed to read/write clipboard:", err);
@@ -64,7 +101,7 @@ const Popup: React.FC = () => {
 
   return (
     <div className="popup-container">
-      <h1>PromptMark</h1>
+      <h1>Markdown for AI prompts</h1>
       <p>Converts rich text in your clipboard to AI prompt friendly format.</p>
       <div className="floating-button-container">
         <button

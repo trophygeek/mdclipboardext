@@ -7,12 +7,12 @@ This project is really just a Chrome Extension wrapper on other open source proj
 
 ## Security first design
 A core aspect is maintaining privacy:
-- No background script
-- No injected context script
-- No access to any page content
-- No access to urls or history
+- No script running in the background
+- No injected context script therefore access to any page content
+- No access to urls or browser history
 - No network communications allowed (via Content Security Policy's `connect-src 'none'`)
-- Storage temporary Session storage via `chrome.storage.session`  
+- ONLY clipboard access extension is actively being used
+- Storage uses temporary Session based via `chrome.storage.session`
 
 ```js
  "permissions": [

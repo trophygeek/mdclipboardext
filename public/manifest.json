@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "PromptMark",
+  "name": "Markdown for AI prompts",
   "version": "1.0",
-  "description": "Quickly convert rich text into markdown for AI prompts",
+  "description": "Quickly convert rich text into markdown format for better AI prompts",
   "permissions": [
     "storage",
     "clipboardRead",

@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, {useEffect, useRef} from "react";
 import ReactDOM from "react-dom/client";
-import { Options } from "mdast-util-to-markdown";
+import {Options} from "mdast-util-to-markdown";
 
 import {
   BlockTypeSelect,
@@ -29,11 +29,13 @@ import {
 
 import "@mdxeditor/editor/style.css";
 import "./options.css";
+import {gfmToMarkdown} from "mdast-util-gfm";
 
 const toMarkdownOptions: Options = {
   bullet: "-",
   bulletOther: "+",
   emphasis: "_",
+  extensions: [gfmToMarkdown()],
 };
 
 interface OptionsProps {
@@ -43,9 +45,16 @@ interface OptionsProps {
 const OptionsPage: React.FC<OptionsProps> = () => {
   const mdxeditorref = useRef<MDXEditorMethods>(null);
   const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const recurrenceRef = useRef<boolean>(false);
 
   useEffect(() => {
     loadSaved();
+    chrome.storage.session.onChanged.addListener(() => {
+      if (!recurrenceRef.current) {
+        // maybe we should confirm before reloading?
+        loadSaved();
+      }
+    });
   }, [mdxeditorref]);
 
   const handleInputChange = (value: string) => {
@@ -58,66 +67,76 @@ const OptionsPage: React.FC<OptionsProps> = () => {
   };
 
   const loadSaved = async () => {
+    if (recurrenceRef.current) {
+      return;
+    }
+    recurrenceRef.current = true;
     const data = await chrome.storage.session.get("currentMarkdown");
     // eslint-disable-next-line no-debugger
     if (data.currentMarkdown) {
       mdxeditorref.current?.setMarkdown(data.currentMarkdown);
     }
+    recurrenceRef.current = false;
     return data.currentMarkdown;
   };
 
   const handleSave = (value: string) => {
-    chrome.storage.session.set({ currentMarkdown: value }, () => {
-      // alert('data saved!');
+    if (recurrenceRef.current) {
+      return;
+    }
+    recurrenceRef.current = true;
+    chrome.storage.session.set({currentMarkdown: value}, () => {
+      recurrenceRef.current = false;
     });
   };
 
   return (
-    <main>
-      <MDXEditor
-        className="mdxeditor-fullscreen light-theme light-editor"
-        ref={mdxeditorref}
-        markdown={""}
-        onChange={handleInputChange}
-        toMarkdownOptions={toMarkdownOptions}
-        plugins={[
-          toolbarPlugin({
-            toolbarContents: () => (
-              <>
-                <DiffSourceToggleWrapper>
-                  <BlockTypeSelect />
-                  <BoldItalicUnderlineToggles />
-                  <CreateLink />
-                  <ListsToggle />
-                  <InsertThematicBreak />
-                  <InsertImage />
-                  <InsertTable />
-                  {/*<ClearFormatting/>*/}
-                  <CodeToggle />
-                </DiffSourceToggleWrapper>
-              </>
-            ),
-          }),
-          diffSourcePlugin({
-            viewMode: "rich-text",
-            readOnlyDiff: true,
-          }),
-          headingsPlugin({ allowedHeadingLevels: [1, 2, 3, 4, 5] }),
-          linkDialogPlugin(),
-          linkPlugin(),
-          listsPlugin(),
-          quotePlugin(),
-          tablePlugin(),
-          thematicBreakPlugin(),
-          imagePlugin(),
-          codeBlockPlugin(),
-        ]}
-      />
-    </main>
+      <main>
+        <MDXEditor
+            className="mdxeditor-fullscreen light-theme light-editor"
+            ref={mdxeditorref}
+            markdown={""}
+            onChange={handleInputChange}
+            toMarkdownOptions={toMarkdownOptions}
+            suppressHtmlProcessing={false}
+            plugins={[
+              toolbarPlugin({
+                              toolbarContents: () => (
+                                  <>
+                                    <DiffSourceToggleWrapper>
+                                      <BlockTypeSelect/>
+                                      <BoldItalicUnderlineToggles/>
+                                      <CreateLink/>
+                                      <ListsToggle/>
+                                      <InsertThematicBreak/>
+                                      <InsertImage/>
+                                      <InsertTable/>
+                                      {/*<ClearFormatting/>*/}
+                                      <CodeToggle/>
+                                    </DiffSourceToggleWrapper>
+                                  </>
+                              ),
+                            }),
+              diffSourcePlugin({
+                                 viewMode: "source",
+                                 readOnlyDiff: true,
+                               }),
+              headingsPlugin({allowedHeadingLevels: [1, 2, 3, 4, 5]}),
+              linkDialogPlugin(),
+              linkPlugin(),
+              listsPlugin(),
+              quotePlugin(),
+              tablePlugin(),
+              thematicBreakPlugin(),
+              imagePlugin(),
+              codeBlockPlugin(),
+            ]}
+        />
+      </main>
   );
 };
 
 const root = document.getElementById("root");
 if (root) {
-  ReactDOM.createRoot(root).render(<OptionsPage />);
+  ReactDOM.createRoot(root).render(<OptionsPage/>);
 }

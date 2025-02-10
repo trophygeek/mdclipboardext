@@ -1,7 +1,7 @@
 {
   "name": "mdclipboardext",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "tsc --sourceMap --inlineSources && vite build --sourcemap=inline",
@@ -13,9 +13,8 @@
   },
   "dependencies": {
     "hast-util-from-html": "^2.0.3",
-    "hast-util-to-html": "^9.0.4",
     "hast-util-to-mdast": "^10.1.2",
-    "mdast-util-gfm": "^3.0.0",
+    "mdast-util-gfm": "^3.1.0",
     "mdast-util-to-markdown": "^2.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
