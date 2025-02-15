@@ -4,6 +4,8 @@ import { htmlToMarkdown } from "./utils";
 
 // @ts-ignore
 import openIconSrc from "../public/openNewWindowIcon.svg";
+// @ts-ignore
+import clearIconSrc from "../public/clearbutton.svg";
 import "./popup.css";
 
 const Popup: React.FC = () => {
@@ -91,13 +93,18 @@ const Popup: React.FC = () => {
       });
     } catch (err) {
       console.error("Failed to read/write clipboard:", err);
-      alert("Failed to access clipboard. Check permissions.");
+      showNotificationMsg(`Was not able to process clipboard. ${err}.`);
     }
   };
 
-  const openOptions = () => {
+  const openOptionsClick = () => {
     chrome.runtime.openOptionsPage();
   };
+
+  const clearContentClick = () => {
+    setModifiedText("");
+    handleSave("");
+  }
 
   return (
     <div className="popup-container">
@@ -106,10 +113,10 @@ const Popup: React.FC = () => {
       <div className="floating-button-container">
         <button
           aria-label="Open editor in new tab"
-          onClick={openOptions}
+          onClick={openOptionsClick}
           className="iconbutton"
         >
-          <img src={openIconSrc} />
+          <img src={openIconSrc} className="iconbuttonsvg" />
         </button>
       </div>
       <button onClick={handleCopyModifyPaste}>Modify Clipboard</button>
@@ -120,6 +127,15 @@ const Popup: React.FC = () => {
         placeholder="Modified text will appear here"
         rows={10}
       />
+      <div className="floating-button-container-bottom">
+        <button
+            aria-label="Clear"
+            onClick={clearContentClick}
+            className="iconbutton"
+        >
+          <img src={clearIconSrc} className="iconbuttonsvg" />
+        </button>
+      </div>
       <div className={`notification ${showNotification ? 'show' : 'hide'}`}>{notificationMessage}</div>
     </div>
   );

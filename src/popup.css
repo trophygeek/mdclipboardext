@@ -39,20 +39,44 @@ button {
 /* Optional: Style the button itself if needed */
 .floating-button-container .iconbutton {
   background-color: rgba(0, 0, 0, 0);
-  zoom: 0.8;
 }
 
 .floating-button-container .iconbutton:hover {
-
+  background-color: rgba(76, 175, 80, 0.1);
 }
 
 .floating-button-container .iconbuttonsvg {
   /* Style the SVG icon */
-  width: 1em;
-  height: 1em;
+  width: 1.2em;
+  height: 1.2em;
   vertical-align: middle;
-  color: white; /* White icon color */
+  color: black; /* White icon color */
 }
+
+.floating-button-container-bottom {
+  position: fixed; /* Makes the element float */
+  bottom: 0; /* Adjust top distance as needed */
+  left: 0; /* Adjust right distance as needed */
+  z-index: 100;
+}
+
+/* Optional: Style the button itself if needed */
+.floating-button-container-bottom .iconbutton {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.floating-button-container-bottom .iconbutton:hover {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.floating-button-container-bottom .iconbuttonsvg {
+  /* Style the SVG icon */
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+  color: rgba(0, 0, 0, 0.6); /* White icon color */
+}
+
 
 
 /* Notification.css */
