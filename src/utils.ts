@@ -5,7 +5,6 @@ import {toMarkdown} from 'mdast-util-to-markdown';
 import {toMdast} from 'hast-util-to-mdast';
 import {gfmToMarkdown} from "mdast-util-gfm";
 
-
 /**
  * Converts an HTML string to Markdown using remark and a comprehensive set of plugins.
  *
@@ -16,10 +15,16 @@ import {gfmToMarkdown} from "mdast-util-gfm";
 export function htmlToMarkdown(htmlString: string) {
   const hast = fromHtml(htmlString, {fragment: true});
   const mdast = toMdast(hast);
-  return toMarkdown(mdast, {
+  const markdown = toMarkdown(mdast, {
     extensions: [
       gfmToMarkdown(),
-    ]
+    ],
+    bullet: '-',
+    bulletOther: '-',
+    ruleSpaces: true,
   });
+
+  // there are some annoying conversions, remove those
+  return markdown.replaceAll(/\\[\r\n]+\\&#xA;/gi, `\r\n\r\n`);
 }
 

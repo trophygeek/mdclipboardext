@@ -3,13 +3,14 @@ import ReactDOM from "react-dom/client";
 import {Options} from "mdast-util-to-markdown";
 
 import {
+  AdmonitionDirectiveDescriptor,
   BlockTypeSelect,
   BoldItalicUnderlineToggles,
-  codeBlockPlugin,
+  codeBlockPlugin, codeMirrorPlugin,
   CodeToggle,
   CreateLink,
   diffSourcePlugin,
-  DiffSourceToggleWrapper,
+  DiffSourceToggleWrapper, directivesPlugin,
   headingsPlugin,
   imagePlugin,
   InsertImage,
@@ -98,7 +99,7 @@ const OptionsPage: React.FC<OptionsProps> = () => {
             markdown={""}
             onChange={handleInputChange}
             toMarkdownOptions={toMarkdownOptions}
-            suppressHtmlProcessing={false}
+            suppressHtmlProcessing={true}
             plugins={[
               toolbarPlugin({
                               toolbarContents: () => (
@@ -121,15 +122,22 @@ const OptionsPage: React.FC<OptionsProps> = () => {
                                  viewMode: "source",
                                  readOnlyDiff: true,
                                }),
-              headingsPlugin({allowedHeadingLevels: [1, 2, 3, 4, 5]}),
-              linkDialogPlugin(),
-              linkPlugin(),
+
+
               listsPlugin(),
               quotePlugin(),
+              headingsPlugin({ allowedHeadingLevels: [1, 2, 3, 4, 5] }),
+              linkPlugin(),
+              linkDialogPlugin(),
+              imagePlugin({ imageAutocompleteSuggestions: ['https://via.placeholder.com/150', 'https://via.placeholder.com/150'] }),
               tablePlugin(),
               thematicBreakPlugin(),
-              imagePlugin(),
-              codeBlockPlugin(),
+              codeBlockPlugin({ defaultCodeBlockLanguage: 'txt' }),
+              codeMirrorPlugin({
+                                 codeBlockLanguages: { js: 'JavaScript', css: 'CSS', txt: 'text', tsx: 'TypeScript' }
+                               }),
+              directivesPlugin({ directiveDescriptors: [ AdmonitionDirectiveDescriptor] }),
+              diffSourcePlugin({ viewMode: 'rich-text', diffMarkdown: 'boo' }),
             ]}
         />
       </main>
