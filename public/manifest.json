@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Markdown clipboard converter",
-  "version": "1.0.2",
-  "description": "Quickly convert rich text into markdown format",
+  "version": "1.0.3",
+  "description": "Quickly convert formatted content into AI friendly markdown",
   "permissions": ["storage", "clipboardRead", "clipboardWrite"],
   "default_locale": "en",
   "icons": {
