@@ -3,15 +3,17 @@ import ReactDOM from "react-dom/client";
 import {Options} from "mdast-util-to-markdown";
 
 import {
+  AdmonitionDirectiveDescriptor,
   BlockTypeSelect,
   BoldItalicUnderlineToggles,
-  codeBlockPlugin,
+  codeBlockPlugin, codeMirrorPlugin,
   CodeToggle,
   CreateLink,
   diffSourcePlugin,
-  DiffSourceToggleWrapper,
+  DiffSourceToggleWrapper, directivesPlugin,
   headingsPlugin,
   imagePlugin,
+  InsertCodeBlock,
   InsertImage,
   InsertTable,
   InsertThematicBreak,
@@ -44,8 +46,42 @@ interface OptionsProps {
 
 const OptionsPage: React.FC<OptionsProps> = () => {
   const mdxeditorref = useRef<MDXEditorMethods>(null);
-  const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const debounceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const recurrenceRef = useRef<boolean>(false);
+
+  const loadSaved = async (): Promise<string | undefined> => {
+    if (recurrenceRef.current) {
+      return;
+    }
+    recurrenceRef.current = true;
+    const data = await chrome.storage.session.get("currentMarkdown");
+    if (data.currentMarkdown && typeof data.currentMarkdown === 'string') {
+      mdxeditorref.current?.setMarkdown(data.currentMarkdown);
+      recurrenceRef.current = false;
+      return data.currentMarkdown;
+    }
+    recurrenceRef.current = false;
+    return undefined;
+  };
+
+  const handleSave = (value: string): void => {
+    if (recurrenceRef.current) {
+      return;
+    }
+    recurrenceRef.current = true;
+    chrome.storage.session.set({currentMarkdown: value}, () => {
+      recurrenceRef.current = false;
+    });
+  };
+
+  const handleInputChange = (value: string): void => {
+    if (debounceTimeoutRef.current) {
+      clearTimeout(debounceTimeoutRef.current);
+    }
+    debounceTimeoutRef.current = setTimeout(() => {
+      handleSave(value);
+    }, 500);
+  };
 
   useEffect(() => {
     loadSaved();
@@ -57,37 +93,62 @@ const OptionsPage: React.FC<OptionsProps> = () => {
     });
   }, [mdxeditorref]);
 
-  const handleInputChange = (value: string) => {
-    if (debounceTimeoutRef.current) {
-      clearTimeout(debounceTimeoutRef.current);
-    }
-    debounceTimeoutRef.current = setTimeout(async () => {
-      handleSave(value);
-    }, 250);
-  };
+  const codeBlockLanguages: Record<string, string> = {
+    '': 'text',
 
-  const loadSaved = async () => {
-    if (recurrenceRef.current) {
-      return;
-    }
-    recurrenceRef.current = true;
-    const data = await chrome.storage.session.get("currentMarkdown");
-    // eslint-disable-next-line no-debugger
-    if (data.currentMarkdown) {
-      mdxeditorref.current?.setMarkdown(data.currentMarkdown);
-    }
-    recurrenceRef.current = false;
-    return data.currentMarkdown;
-  };
+    js: 'JavaScript',
+    javascript: 'JavaScript',
+    jsx: 'JSX',
 
-  const handleSave = (value: string) => {
-    if (recurrenceRef.current) {
-      return;
-    }
-    recurrenceRef.current = true;
-    chrome.storage.session.set({currentMarkdown: value}, () => {
-      recurrenceRef.current = false;
-    });
+    ts: 'TypeScript',
+    tsx: 'TypeScript',
+    typescript: 'TypeScript',
+
+    css: 'CSS',
+    scss: 'SCSS',
+    sass: 'SASS',
+    less: 'Less',
+    html: 'HTML',
+    xml: 'XML',
+    json: 'JSON',
+    json5: 'JSON', 
+    yaml: 'YAML',
+    yml: 'YAML',
+    markdown: 'Markdown',
+    md: 'Markdown',
+    python: 'Python',
+    py: 'Python',
+    java: 'Java',
+    go: 'Go',
+    rust: 'Rust',
+    rs: 'Rust',
+    php: 'PHP',
+    ruby: 'Ruby',
+    rb: 'Ruby',
+    sh: 'Shell',
+    bash: 'Bash',
+    shell: 'Shell',
+    sql: 'SQL',
+    c: 'C',
+    cpp: 'C++',
+    cxx: 'C++',
+    cs: 'C#',
+    swift: 'Swift',
+    kotlin: 'Kotlin',
+    kt: 'Kotlin',
+    dart: 'Dart',
+    lua: 'Lua',
+    perl: 'Perl',
+    pl: 'Perl',
+    r: 'R',
+    scala: 'Scala',
+    dockerfile: 'Dockerfile',
+    makefile: 'Makefile',
+    txt: 'text',
+    text: 'text',
+    graphql: 'GraphQL',
+    d: 'D',
+    powershell: 'PowerShell',
   };
 
   return (
@@ -98,7 +159,7 @@ const OptionsPage: React.FC<OptionsProps> = () => {
             markdown={""}
             onChange={handleInputChange}
             toMarkdownOptions={toMarkdownOptions}
-            suppressHtmlProcessing={false}
+            suppressHtmlProcessing={true}
             plugins={[
               toolbarPlugin({
                               toolbarContents: () => (
@@ -111,6 +172,7 @@ const OptionsPage: React.FC<OptionsProps> = () => {
                                       <InsertThematicBreak/>
                                       <InsertImage/>
                                       <InsertTable/>
+                                      <InsertCodeBlock/>
                                       {/*<ClearFormatting/>*/}
                                       <CodeToggle/>
                                     </DiffSourceToggleWrapper>
@@ -121,15 +183,23 @@ const OptionsPage: React.FC<OptionsProps> = () => {
                                  viewMode: "source",
                                  readOnlyDiff: true,
                                }),
-              headingsPlugin({allowedHeadingLevels: [1, 2, 3, 4, 5]}),
-              linkDialogPlugin(),
-              linkPlugin(),
+
+
               listsPlugin(),
               quotePlugin(),
+              headingsPlugin({ allowedHeadingLevels: [1, 2, 3, 4, 5] }),
+              linkPlugin(),
+              linkDialogPlugin(),
+              imagePlugin({ imageAutocompleteSuggestions: [chrome.runtime.getURL('placeholder1.png'), chrome.runtime.getURL('placeholder2.png')] }),
               tablePlugin(),
               thematicBreakPlugin(),
-              imagePlugin(),
-              codeBlockPlugin(),
+              codeBlockPlugin({ defaultCodeBlockLanguage: 'txt' }),
+              codeMirrorPlugin({
+                autoLoadLanguageSupport: true,
+                codeBlockLanguages: codeBlockLanguages,
+                               }),
+              directivesPlugin({ directiveDescriptors: [ AdmonitionDirectiveDescriptor] }),
+              diffSourcePlugin({ viewMode: 'rich-text' }),
             ]}
         />
       </main>
