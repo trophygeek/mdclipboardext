@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { htmlToMarkdown, isMarkdownText } from "./utils";
 
@@ -11,7 +11,7 @@ import "./popup.css";
 const Popup: React.FC = () => {
   const [modifiedText, setModifiedText] = useState("");
   const [showNotification, setShowNotification] = useState(false);
-  const [notificationMessage, setNotificationMessage] = useState('');
+  const [notificationMessage, setNotificationMessage] = useState("");
   const recurrenceRef = useRef<boolean>(false);
 
   const showNotificationMsg = (msg: string): void => {
@@ -26,7 +26,7 @@ const Popup: React.FC = () => {
     }
     recurrenceRef.current = true;
     const data = await chrome.storage.session.get("currentMarkdown");
-    if (data.currentMarkdown && typeof data.currentMarkdown === 'string') {
+    if (data.currentMarkdown && typeof data.currentMarkdown === "string") {
       setModifiedText(data.currentMarkdown);
       recurrenceRef.current = false;
       return data.currentMarkdown;
@@ -40,7 +40,7 @@ const Popup: React.FC = () => {
       return;
     }
     recurrenceRef.current = true;
-    chrome.storage.session.set({currentMarkdown: value}, () => {
+    chrome.storage.session.set({ currentMarkdown: value }, () => {
       recurrenceRef.current = false;
     });
   };
@@ -59,24 +59,30 @@ const Popup: React.FC = () => {
   const handleCopyModifyPaste = async (): Promise<void> => {
     try {
       const clipboardContents = await navigator.clipboard.read();
-      
+
       // Helper function to handle markdown display (without clipboard write)
       const displayMarkdown = (markdownText: string): void => {
         setModifiedText(markdownText);
         chrome.storage.session.set({ currentMarkdown: markdownText }, () => {
-          showNotificationMsg("Markdown detected in clipboard. Click button in upper right to edit.");
+          showNotificationMsg(
+            "Markdown detected in clipboard. Click button in upper right to edit.",
+          );
           handleSave(markdownText);
         });
       };
 
       // Check for markdown MIME types first
-      const markdownItem = clipboardContents.find((s) =>
-        s.types.includes("text/markdown") || s.types.includes("text/x-markdown")
+      const markdownItem = clipboardContents.find(
+        (s) =>
+          s.types.includes("text/markdown") ||
+          s.types.includes("text/x-markdown"),
       );
       if (markdownItem) {
-        const markdownType = markdownItem.types.find(t => t.includes("markdown")) ?? "text/plain";
+        const markdownType =
+          markdownItem.types.find((t) => t.includes("markdown")) ??
+          "text/plain";
         const blob = await markdownItem.getType(markdownType);
-        const markdownText = await blob?.text() ?? "";
+        const markdownText = (await blob?.text()) ?? "";
         if (markdownText) {
           displayMarkdown(markdownText);
           return;
@@ -90,21 +96,23 @@ const Popup: React.FC = () => {
       if (!clipboardItem) {
         // Check if plain text is markdown
         const plainTextItem = clipboardContents.find((s) =>
-          s.types.includes("text/plain")
+          s.types.includes("text/plain"),
         );
         if (plainTextItem) {
           const blob = await plainTextItem.getType("text/plain");
-          const plainText = await blob?.text() ?? "";
+          const plainText = (await blob?.text()) ?? "";
           if (plainText && isMarkdownText(plainText)) {
             displayMarkdown(plainText);
             return;
           }
         }
-        showNotificationMsg("No rich text found in clipboard. Already converted?");
+        showNotificationMsg(
+          "No rich text found in clipboard. Already converted?",
+        );
         return;
       }
       const blob = await clipboardItem.getType("text/html");
-      const htmlText = await blob?.text() ?? "";
+      const htmlText = (await blob?.text()) ?? "";
 
       if (htmlText === "") {
         showNotificationMsg("No rich text found in clipboard.");
@@ -127,7 +135,9 @@ const Popup: React.FC = () => {
       setModifiedText(markdownText);
       await navigator.clipboard.writeText(markdownText);
       chrome.storage.session.set({ currentMarkdown: markdownText }, () => {
-        showNotificationMsg("Clipboard updated successfully and added to clipboard.");
+        showNotificationMsg(
+          "Clipboard updated successfully and added to clipboard.",
+        );
         handleSave(markdownText);
       });
     } catch (err) {
@@ -168,14 +178,16 @@ const Popup: React.FC = () => {
       />
       <div className="floating-button-container-bottom">
         <button
-            aria-label="Clear"
-            onClick={clearContentClick}
-            className="iconbutton"
+          aria-label="Clear"
+          onClick={clearContentClick}
+          className="iconbutton"
         >
           <img src={clearIconSrc} className="iconbuttonsvg" />
         </button>
       </div>
-      <div className={`notification ${showNotification ? 'show' : 'hide'}`}>{notificationMessage}</div>
+      <div className={`notification ${showNotification ? "show" : "hide"}`}>
+        {notificationMessage}
+      </div>
     </div>
   );
 };

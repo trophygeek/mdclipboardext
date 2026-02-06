@@ -1,10 +1,13 @@
-import { fromHtml } from 'hast-util-from-html';
-import { toMarkdown } from 'mdast-util-to-markdown';
-import { toMdast } from 'hast-util-to-mdast';
-import { fromMarkdown } from 'mdast-util-from-markdown';
+import { fromHtml } from "hast-util-from-html";
+import { toMarkdown } from "mdast-util-to-markdown";
+import { toMdast } from "hast-util-to-mdast";
+import { fromMarkdown } from "mdast-util-from-markdown";
 import { gfmToMarkdown, gfmFromMarkdown } from "mdast-util-gfm";
-import { directive } from 'micromark-extension-directive';
-import { directiveFromMarkdown, directiveToMarkdown } from 'mdast-util-directive';
+import { directive } from "micromark-extension-directive";
+import {
+  directiveFromMarkdown,
+  directiveToMarkdown,
+} from "mdast-util-directive";
 
 /**
  * Converts an HTML string to Markdown.
@@ -27,11 +30,8 @@ export function htmlToMarkdown(htmlString: string): string {
 
   // Serialize MDAST to Markdown string
   const markdown = toMarkdown(mdast, {
-    extensions: [
-      gfmToMarkdown(),
-      directiveToMarkdown()
-    ],
-    bullet: '-',
+    extensions: [gfmToMarkdown(), directiveToMarkdown()],
+    bullet: "-",
     ruleSpaces: true,
   });
 
@@ -55,20 +55,20 @@ export function isMarkdownText(text: string): boolean {
     // Parse using the same extensions used for conversion to ensure consistency
     const tree = fromMarkdown(text, {
       extensions: [directive()],
-      mdastExtensions: [gfmFromMarkdown(), directiveFromMarkdown()]
+      mdastExtensions: [gfmFromMarkdown(), directiveFromMarkdown()],
     });
 
     // Heuristic: Does the AST contain anything more complex than a plain paragraph?
     const hasMarkdownStructures = tree.children.some((node) => {
       // Non-paragraph nodes (Heading, List, Table, Code, etc.) are definitive
-      if (node.type !== 'paragraph') {
+      if (node.type !== "paragraph") {
         return true;
       }
 
       // If it is a paragraph, check children for inline formatting (Link, Strong, Emphasis, etc.)
-      if ('children' in node && Array.isArray(node.children)) {
-        return node.children.some((child) =>
-                                      child.type !== 'text' && child.type !== 'break'
+      if ("children" in node && Array.isArray(node.children)) {
+        return node.children.some(
+          (child) => child.type !== "text" && child.type !== "break",
         );
       }
       return false;

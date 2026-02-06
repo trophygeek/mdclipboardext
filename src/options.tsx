@@ -1,16 +1,18 @@
-import React, {useEffect, useRef} from "react";
+import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom/client";
-import {Options} from "mdast-util-to-markdown";
+import { Options } from "mdast-util-to-markdown";
 
 import {
   AdmonitionDirectiveDescriptor,
   BlockTypeSelect,
   BoldItalicUnderlineToggles,
-  codeBlockPlugin, codeMirrorPlugin,
+  codeBlockPlugin,
+  codeMirrorPlugin,
   CodeToggle,
   CreateLink,
   diffSourcePlugin,
-  DiffSourceToggleWrapper, directivesPlugin,
+  DiffSourceToggleWrapper,
+  directivesPlugin,
   headingsPlugin,
   imagePlugin,
   InsertCodeBlock,
@@ -31,7 +33,7 @@ import {
 
 import "@mdxeditor/editor/style.css";
 import "./options.css";
-import {gfmToMarkdown} from "mdast-util-gfm";
+import { gfmToMarkdown } from "mdast-util-gfm";
 
 const toMarkdownOptions: Options = {
   bullet: "-",
@@ -55,7 +57,7 @@ const OptionsPage: React.FC<OptionsProps> = () => {
     }
     recurrenceRef.current = true;
     const data = await chrome.storage.session.get("currentMarkdown");
-    if (data.currentMarkdown && typeof data.currentMarkdown === 'string') {
+    if (data.currentMarkdown && typeof data.currentMarkdown === "string") {
       mdxeditorref.current?.setMarkdown(data.currentMarkdown);
       recurrenceRef.current = false;
       return data.currentMarkdown;
@@ -69,7 +71,7 @@ const OptionsPage: React.FC<OptionsProps> = () => {
       return;
     }
     recurrenceRef.current = true;
-    chrome.storage.session.set({currentMarkdown: value}, () => {
+    chrome.storage.session.set({ currentMarkdown: value }, () => {
       recurrenceRef.current = false;
     });
   };
@@ -94,119 +96,125 @@ const OptionsPage: React.FC<OptionsProps> = () => {
   }, [mdxeditorref]);
 
   const codeBlockLanguages: Record<string, string> = {
-    '': 'text',
+    "": "text",
 
-    js: 'JavaScript',
-    javascript: 'JavaScript',
-    jsx: 'JSX',
+    js: "JavaScript",
+    javascript: "JavaScript",
+    jsx: "JSX",
 
-    ts: 'TypeScript',
-    tsx: 'TypeScript',
-    typescript: 'TypeScript',
+    ts: "TypeScript",
+    tsx: "TypeScript",
+    typescript: "TypeScript",
 
-    css: 'CSS',
-    scss: 'SCSS',
-    sass: 'SASS',
-    less: 'Less',
-    html: 'HTML',
-    xml: 'XML',
-    json: 'JSON',
-    json5: 'JSON', 
-    yaml: 'YAML',
-    yml: 'YAML',
-    markdown: 'Markdown',
-    md: 'Markdown',
-    python: 'Python',
-    py: 'Python',
-    java: 'Java',
-    go: 'Go',
-    rust: 'Rust',
-    rs: 'Rust',
-    php: 'PHP',
-    ruby: 'Ruby',
-    rb: 'Ruby',
-    sh: 'Shell',
-    bash: 'Bash',
-    shell: 'Shell',
-    sql: 'SQL',
-    c: 'C',
-    cpp: 'C++',
-    cxx: 'C++',
-    cs: 'C#',
-    swift: 'Swift',
-    kotlin: 'Kotlin',
-    kt: 'Kotlin',
-    dart: 'Dart',
-    lua: 'Lua',
-    perl: 'Perl',
-    pl: 'Perl',
-    r: 'R',
-    scala: 'Scala',
-    dockerfile: 'Dockerfile',
-    makefile: 'Makefile',
-    txt: 'text',
-    text: 'text',
-    graphql: 'GraphQL',
-    d: 'D',
-    powershell: 'PowerShell',
+    css: "CSS",
+    scss: "SCSS",
+    sass: "SASS",
+    less: "Less",
+    html: "HTML",
+    xml: "XML",
+    json: "JSON",
+    json5: "JSON",
+    yaml: "YAML",
+    yml: "YAML",
+    markdown: "Markdown",
+    md: "Markdown",
+    python: "Python",
+    py: "Python",
+    java: "Java",
+    go: "Go",
+    rust: "Rust",
+    rs: "Rust",
+    php: "PHP",
+    ruby: "Ruby",
+    rb: "Ruby",
+    sh: "Shell",
+    bash: "Bash",
+    shell: "Shell",
+    sql: "SQL",
+    c: "C",
+    cpp: "C++",
+    cxx: "C++",
+    cs: "C#",
+    swift: "Swift",
+    kotlin: "Kotlin",
+    kt: "Kotlin",
+    dart: "Dart",
+    lua: "Lua",
+    perl: "Perl",
+    pl: "Perl",
+    r: "R",
+    scala: "Scala",
+    dockerfile: "Dockerfile",
+    makefile: "Makefile",
+    txt: "text",
+    text: "text",
+    graphql: "GraphQL",
+    d: "D",
+    powershell: "PowerShell",
   };
 
   return (
-      <main>
-        <MDXEditor
-            className="mdxeditor-fullscreen light-theme light-editor"
-            ref={mdxeditorref}
-            markdown={""}
-            onChange={handleInputChange}
-            toMarkdownOptions={toMarkdownOptions}
-            suppressHtmlProcessing={true}
-            plugins={[
-              toolbarPlugin({
-                              toolbarContents: () => (
-                                  <>
-                                    <DiffSourceToggleWrapper>
-                                      <BlockTypeSelect/>
-                                      <BoldItalicUnderlineToggles/>
-                                      <CreateLink/>
-                                      <ListsToggle/>
-                                      <InsertThematicBreak/>
-                                      <InsertImage/>
-                                      <InsertTable/>
-                                      <InsertCodeBlock/>
-                                      {/*<ClearFormatting/>*/}
-                                      <CodeToggle/>
-                                    </DiffSourceToggleWrapper>
-                                  </>
-                              ),
-                            }),
-              diffSourcePlugin({
-                                 viewMode: "source",
-                                 readOnlyDiff: true,
-                               }),
+    <main>
+      <MDXEditor
+        className="mdxeditor-fullscreen light-theme light-editor"
+        ref={mdxeditorref}
+        markdown={""}
+        onChange={handleInputChange}
+        toMarkdownOptions={toMarkdownOptions}
+        suppressHtmlProcessing={true}
+        plugins={[
+          toolbarPlugin({
+            toolbarContents: () => (
+              <>
+                <DiffSourceToggleWrapper>
+                  <BlockTypeSelect />
+                  <BoldItalicUnderlineToggles />
+                  <CreateLink />
+                  <ListsToggle />
+                  <InsertThematicBreak />
+                  <InsertImage />
+                  <InsertTable />
+                  <InsertCodeBlock />
+                  {/*<ClearFormatting/>*/}
+                  <CodeToggle />
+                </DiffSourceToggleWrapper>
+              </>
+            ),
+          }),
+          diffSourcePlugin({
+            viewMode: "source",
+            readOnlyDiff: true,
+          }),
 
-
-              listsPlugin(),
-              quotePlugin(),
-              headingsPlugin({ allowedHeadingLevels: [1, 2, 3, 4, 5] }),
-              linkPlugin(),
-              linkDialogPlugin(),
-              imagePlugin({ imageAutocompleteSuggestions: [chrome.runtime.getURL('placeholder1.png'), chrome.runtime.getURL('placeholder2.png')] }),
-              tablePlugin(),
-              thematicBreakPlugin(),
-              codeBlockPlugin({ defaultCodeBlockLanguage: 'txt' }),
-              codeMirrorPlugin({
-                autoLoadLanguageSupport: true,
-                codeBlockLanguages: codeBlockLanguages,
-                               }),
-              directivesPlugin({ directiveDescriptors: [ AdmonitionDirectiveDescriptor] }),
-              diffSourcePlugin({ viewMode: 'rich-text' }),
-            ]}
-        />
-      </main>
+          listsPlugin(),
+          quotePlugin(),
+          headingsPlugin({ allowedHeadingLevels: [1, 2, 3, 4, 5] }),
+          linkPlugin(),
+          linkDialogPlugin(),
+          imagePlugin({
+            imageAutocompleteSuggestions: [
+              chrome.runtime.getURL("placeholder1.png"),
+              chrome.runtime.getURL("placeholder2.png"),
+            ],
+          }),
+          tablePlugin(),
+          thematicBreakPlugin(),
+          codeBlockPlugin({ defaultCodeBlockLanguage: "txt" }),
+          codeMirrorPlugin({
+            autoLoadLanguageSupport: true,
+            codeBlockLanguages: codeBlockLanguages,
+          }),
+          directivesPlugin({
+            directiveDescriptors: [AdmonitionDirectiveDescriptor],
+          }),
+          diffSourcePlugin({ viewMode: "rich-text" }),
+        ]}
+      />
+    </main>
   );
 };
 
 const root = document.getElementById("root");
 if (root) {
-  ReactDOM.createRoot(root).render(<OptionsPage/>);
+  ReactDOM.createRoot(root).render(<OptionsPage />);
 }

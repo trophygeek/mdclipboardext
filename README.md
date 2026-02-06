@@ -1,12 +1,14 @@
-#  mdclipboardext - Markdown Clipboard Chrome Extension
+# mdclipboardext - Markdown Clipboard Chrome Extension
 
 This project is really just a Chrome Extension wrapper on other open source projects:
+
 - [MDXEditor](https://github.com/mdx-editor/editor)
 - [mdast-util-to-markdown](https://github.com/syntax-tree/mdast-util-from-markdown)
 
-
 ## Security first design
+
 A core aspect is maintaining privacy:
+
 - No script running in the background
 - No injected context script therefore access to any page content
 - No access to urls or browser history

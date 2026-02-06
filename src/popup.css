@@ -77,8 +77,6 @@ button {
   color: rgba(0, 0, 0, 0.6); /* White icon color */
 }
 
-
-
 /* Notification.css */
 .notification {
   position: fixed;
@@ -94,7 +92,9 @@ button {
   padding: 10px 20px;
   border-radius: 5px;
   opacity: 0; /* Initially hidden */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease; /* Smooth transitions */
 }
 
 .notification.show {

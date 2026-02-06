@@ -3,11 +3,7 @@
   "name": "Markdown clipboard converter",
   "version": "1.0.2",
   "description": "Quickly convert rich text into markdown format",
-  "permissions": [
-    "storage",
-    "clipboardRead",
-    "clipboardWrite"
-  ],
+  "permissions": ["storage", "clipboardRead", "clipboardWrite"],
   "default_locale": "en",
   "icons": {
     "16": "icon16.png",
