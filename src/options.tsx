@@ -97,6 +97,8 @@ const OptionsPage: React.FC<OptionsProps> = () => {
 
   const codeBlockLanguages: Record<string, string> = {
     "": "text",
+    txt: "text",
+    text: "text",
 
     js: "JavaScript",
     javascript: "JavaScript",
@@ -146,8 +148,6 @@ const OptionsPage: React.FC<OptionsProps> = () => {
     scala: "Scala",
     dockerfile: "Dockerfile",
     makefile: "Makefile",
-    txt: "text",
-    text: "text",
     graphql: "GraphQL",
     d: "D",
     powershell: "PowerShell",
@@ -181,10 +181,6 @@ const OptionsPage: React.FC<OptionsProps> = () => {
               </>
             ),
           }),
-          diffSourcePlugin({
-            viewMode: "source",
-            readOnlyDiff: true,
-          }),
 
           listsPlugin(),
           quotePlugin(),
@@ -207,7 +203,8 @@ const OptionsPage: React.FC<OptionsProps> = () => {
           directivesPlugin({
             directiveDescriptors: [AdmonitionDirectiveDescriptor],
           }),
-          diffSourcePlugin({ viewMode: "rich-text" }),
+          diffSourcePlugin({ 
+            viewMode: "source" }),
         ]}
       />
     </main>
