@@ -1,26 +1,52 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
-import { htmlToMarkdown } from "./utils";
+import { htmlToMarkdown, isMarkdownText } from "./utils";
 
-// @ts-ignore
+// @ts-expect-error - SVG imports not typed
 import openIconSrc from "../public/openNewWindowIcon.svg";
-// @ts-ignore
+// @ts-expect-error - SVG imports not typed
 import clearIconSrc from "../public/clearbutton.svg";
 import "./popup.css";
 
 const Popup: React.FC = () => {
   const [modifiedText, setModifiedText] = useState("");
   const [showNotification, setShowNotification] = useState(false);
-  const [notificationMessage, setNotificationMessage] = useState('');
+  const [notificationMessage, setNotificationMessage] = useState("");
   const recurrenceRef = useRef<boolean>(false);
 
-  const showNotificationMsg = (msg: string) => {
+  const showNotificationMsg = (msg: string): void => {
     setNotificationMessage(msg);
     setShowNotification(true);
     setTimeout(() => setShowNotification(false), 3000); // Hide the notification after 3 seconds
   };
 
+  const loadSaved = async (): Promise<string | undefined> => {
+    if (recurrenceRef.current) {
+      return;
+    }
+    recurrenceRef.current = true;
+    const data = await chrome.storage.session.get("currentMarkdown");
+    if (data.currentMarkdown && typeof data.currentMarkdown === "string") {
+      setModifiedText(data.currentMarkdown);
+      recurrenceRef.current = false;
+      return data.currentMarkdown;
+    }
+    recurrenceRef.current = false;
+    return undefined;
+  };
+
+  const handleSave = (value: string): void => {
+    if (recurrenceRef.current) {
+      return;
+    }
+    recurrenceRef.current = true;
+    chrome.storage.session.set({ currentMarkdown: value }, () => {
+      recurrenceRef.current = false;
+    });
+  };
+
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- Loading initial state from storage
     loadSaved();
     chrome.storage.session.onChanged.addListener(() => {
       if (!recurrenceRef.current) {
@@ -30,42 +56,63 @@ const Popup: React.FC = () => {
     });
   }, []);
 
-  const loadSaved = async () => {
-    if (recurrenceRef.current) {
-      return;
-    }
-    recurrenceRef.current = true;
-    const data = await chrome.storage.session.get("currentMarkdown");
-    // eslint-disable-next-line no-debugger
-    if (data.currentMarkdown) {
-      setModifiedText(data.currentMarkdown);
-    }
-    recurrenceRef.current = false;
-    return data.currentMarkdown;
-  };
-
-  const handleSave = (value: string) => {
-    if (recurrenceRef.current) {
-      return;
-    }
-    recurrenceRef.current = true;
-    chrome.storage.session.set({currentMarkdown: value}, () => {
-      recurrenceRef.current = false;
-    });
-  };
-
-  const handleCopyModifyPaste = async () => {
+  const handleCopyModifyPaste = async (): Promise<void> => {
     try {
       const clipboardContents = await navigator.clipboard.read();
+
+      // Helper function to handle markdown display (without clipboard write)
+      const displayMarkdown = (markdownText: string): void => {
+        setModifiedText(markdownText);
+        chrome.storage.session.set({ currentMarkdown: markdownText }, () => {
+          showNotificationMsg(
+            "Markdown detected in clipboard. Click button in upper right to edit.",
+          );
+          handleSave(markdownText);
+        });
+      };
+
+      // Check for markdown MIME types first
+      const markdownItem = clipboardContents.find(
+        (s) =>
+          s.types.includes("text/markdown") ||
+          s.types.includes("text/x-markdown"),
+      );
+      if (markdownItem) {
+        const markdownType =
+          markdownItem.types.find((t) => t.includes("markdown")) ??
+          "text/plain";
+        const blob = await markdownItem.getType(markdownType);
+        const markdownText = (await blob?.text()) ?? "";
+        if (markdownText) {
+          displayMarkdown(markdownText);
+          return;
+        }
+      }
+
+      // Check for HTML
       const clipboardItem = clipboardContents.find((s) =>
         s.types.includes("text/html"),
       );
       if (!clipboardItem) {
-        showNotificationMsg("No rich text found in clipboard. Already converted?");
+        // Check if plain text is markdown
+        const plainTextItem = clipboardContents.find((s) =>
+          s.types.includes("text/plain"),
+        );
+        if (plainTextItem) {
+          const blob = await plainTextItem.getType("text/plain");
+          const plainText = (await blob?.text()) ?? "";
+          if (plainText && isMarkdownText(plainText)) {
+            displayMarkdown(plainText);
+            return;
+          }
+        }
+        showNotificationMsg(
+          "No rich text found in clipboard. Already converted?",
+        );
         return;
       }
       const blob = await clipboardItem.getType("text/html");
-      const htmlText = await blob?.text() ?? "";
+      const htmlText = (await blob?.text()) ?? "";
 
       if (htmlText === "") {
         showNotificationMsg("No rich text found in clipboard.");
@@ -75,7 +122,7 @@ const Popup: React.FC = () => {
         return;
       }
 
-      // --- Modify the text (Example: convert to uppercase) ---
+      // --- Convert HTML to Markdown ---
       const markdownText = htmlToMarkdown(htmlText);
       if (markdownText === "") {
         showNotificationMsg("No rich text found in clipboard.");
@@ -88,7 +135,9 @@ const Popup: React.FC = () => {
       setModifiedText(markdownText);
       await navigator.clipboard.writeText(markdownText);
       chrome.storage.session.set({ currentMarkdown: markdownText }, () => {
-        showNotificationMsg("Clipboard updated successfully. Paste to see results.");
+        showNotificationMsg(
+          "Clipboard updated successfully and added to clipboard.",
+        );
         handleSave(markdownText);
       });
     } catch (err) {
@@ -97,14 +146,14 @@ const Popup: React.FC = () => {
     }
   };
 
-  const openOptionsClick = () => {
+  const openOptionsClick = (): void => {
     chrome.runtime.openOptionsPage();
   };
 
-  const clearContentClick = () => {
+  const clearContentClick = (): void => {
     setModifiedText("");
     handleSave("");
-  }
+  };
 
   return (
     <div className="popup-container">
@@ -129,14 +178,16 @@ const Popup: React.FC = () => {
       />
       <div className="floating-button-container-bottom">
         <button
-            aria-label="Clear"
-            onClick={clearContentClick}
-            className="iconbutton"
+          aria-label="Clear"
+          onClick={clearContentClick}
+          className="iconbutton"
         >
           <img src={clearIconSrc} className="iconbuttonsvg" />
         </button>
       </div>
-      <div className={`notification ${showNotification ? 'show' : 'hide'}`}>{notificationMessage}</div>
+      <div className={`notification ${showNotification ? "show" : "hide"}`}>
+        {notificationMessage}
+      </div>
     </div>
   );
 };

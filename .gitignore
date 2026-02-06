@@ -4,3 +4,4 @@
 *.lock
 /dist
 *.zip
+pnpm-lock.yaml
