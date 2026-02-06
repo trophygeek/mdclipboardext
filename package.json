@@ -1,7 +1,7 @@
 {
   "name": "mdclipboardext",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "dev": "tsc --sourceMap --inlineSources && vite build --sourcemap=inline",
@@ -9,9 +9,11 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
+    "@mdxeditor/editor": "^3.21.2",
     "hast-util-from-html": "^2.0.3",
     "hast-util-to-mdast": "^10.1.2",
     "mdast-util-directive": "^3.1.0",
@@ -23,11 +25,7 @@
     "react-dom": "^19.2.4"
   },
   "devDependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
     "@eslint/js": "^9.39.2",
-    "@mdxeditor/editor": "^3.21.2",
-    "@mdxeditor/gurx": "^1.2.3",
     "@types/chrome": "^0.1.32",
     "@types/node": "^25.2.1",
     "@types/react": "^19.2.13",
@@ -40,7 +38,6 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.0",
     "globals": "^15.14.0",
-    "mdast": "^3.0.0",
     "prettier": "^3.7.4",
     "typescript": "^5.9.3",
     "vite": "^7.3.1"

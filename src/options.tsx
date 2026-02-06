@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { Options } from "mdast-util-to-markdown";
 
@@ -50,6 +50,17 @@ const OptionsPage: React.FC<OptionsProps> = () => {
   const mdxeditorref = useRef<MDXEditorMethods>(null);
   const debounceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const recurrenceRef = useRef<boolean>(false);
+  const [initialMarkdown, setInitialMarkdown] = useState<string | undefined>(
+    undefined,
+  );
+
+  const getInitialMarkdown = async (): Promise<string | undefined> => {
+    const data = await chrome.storage.session.get("currentMarkdown");
+    if (data.currentMarkdown && typeof data.currentMarkdown === "string") {
+      return data.currentMarkdown;
+    }
+    return undefined;
+  };
 
   const loadSaved = async (): Promise<string | undefined> => {
     if (recurrenceRef.current) {
@@ -85,6 +96,21 @@ const OptionsPage: React.FC<OptionsProps> = () => {
     }, 500);
   };
 
+  // Load initial markdown snapshot once on mount for diff comparison
+  // This value is immutable after initial load - it represents the baseline for diffing
+  useEffect(() => {
+    let isMounted = true;
+    getInitialMarkdown().then((markdown) => {
+      if (isMounted && markdown !== undefined) {
+        setInitialMarkdown(markdown);
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  // Load and sync editor content with storage
   useEffect(() => {
     loadSaved();
     chrome.storage.session.onChanged.addListener(() => {
@@ -93,10 +119,12 @@ const OptionsPage: React.FC<OptionsProps> = () => {
         loadSaved();
       }
     });
-  }, [mdxeditorref]);
+  }, []);
 
   const codeBlockLanguages: Record<string, string> = {
     "": "text",
+    txt: "text",
+    text: "text",
 
     js: "JavaScript",
     javascript: "JavaScript",
@@ -146,8 +174,6 @@ const OptionsPage: React.FC<OptionsProps> = () => {
     scala: "Scala",
     dockerfile: "Dockerfile",
     makefile: "Makefile",
-    txt: "text",
-    text: "text",
     graphql: "GraphQL",
     d: "D",
     powershell: "PowerShell",
@@ -181,10 +207,6 @@ const OptionsPage: React.FC<OptionsProps> = () => {
               </>
             ),
           }),
-          diffSourcePlugin({
-            viewMode: "source",
-            readOnlyDiff: true,
-          }),
 
           listsPlugin(),
           quotePlugin(),
@@ -207,7 +229,10 @@ const OptionsPage: React.FC<OptionsProps> = () => {
           directivesPlugin({
             directiveDescriptors: [AdmonitionDirectiveDescriptor],
           }),
-          diffSourcePlugin({ viewMode: "rich-text" }),
+          diffSourcePlugin({
+            diffMarkdown: initialMarkdown,
+            viewMode: "source",
+          }),
         ]}
       />
     </main>
