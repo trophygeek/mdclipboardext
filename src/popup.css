@@ -27,6 +27,7 @@ button {
   width: 100%;
   height: 19em;
   margin-top: 1em;
+  resize: vertical;
 }
 
 .floating-button-container {

@@ -13,6 +13,24 @@ const Popup: React.FC = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState("");
   const recurrenceRef = useRef<boolean>(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    chrome.storage.local.get("popup_textarea_height", (result) => {
+      const height = result.popup_textarea_height;
+      if (typeof height === "string" && textareaRef.current) {
+        textareaRef.current.style.height = height;
+      }
+    });
+  }, []);
+
+  const handleMouseUp = (): void => {
+    if (textareaRef.current && textareaRef.current.style.height) {
+      chrome.storage.local.set({
+        popup_textarea_height: textareaRef.current.style.height,
+      });
+    }
+  };
 
   const showNotificationMsg = (msg: string): void => {
     setNotificationMessage(msg);
@@ -170,11 +188,13 @@ const Popup: React.FC = () => {
       </div>
       <button onClick={handleCopyModifyPaste}>Modify Clipboard</button>
       <textarea
+        ref={textareaRef}
         className="modifiedTextArea"
         value={modifiedText}
         readOnly
-        placeholder="Modified text will appear here"
+        placeholder={chrome.i18n.getMessage("modifiedTextPlaceholder")}
         rows={10}
+        onMouseUp={handleMouseUp}
       />
       <div className="floating-button-container-bottom">
         <button
