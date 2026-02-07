@@ -1,0 +1,62 @@
+{
+  "appName": {
+    "message": "Convertidor de Portapapeles a Markdown"
+  },
+  "appDesc": {
+    "message": "Convierte instantáneamente contenido formateado en Markdown listo para IA."
+  },
+  "actionTitle": {
+    "message": "Convertir Portapapeles a Markdown"
+  },
+  "popupTitle": {
+    "message": "Markdown para Prompts de IA"
+  },
+  "popupSubtitle": {
+    "message": "Transforma contenido formateado en Markdown para herramientas de IA."
+  },
+  "modifyClipboardBtn": {
+    "message": "Convertir Portapapeles"
+  },
+  "modifiedTextPlaceholder": {
+    "message": "El contenido convertido aparecerá aquí..."
+  },
+  "openEditorAria": {
+    "message": "Abrir editor en una nueva pestaña"
+  },
+  "clearAria": {
+    "message": "Borrar contenido"
+  },
+  "notifyMarkdownDetected": {
+    "message": "Markdown detectado. Edita usando el botón superior derecho."
+  },
+  "notifyNoRichText": {
+    "message": "No se encontró contenido formateado."
+  },
+  "notifyNoRichTextDetails": {
+    "message": "Solo se encontró texto plano. Copia primero contenido formateado (como tablas)."
+  },
+  "notifyAlreadyConverted": {
+    "message": "Nada encontrado. ¿Ya está convertido?"
+  },
+  "notifyNoTextDetails": {
+    "message": "El portapapeles está vacío. Copia algún contenido primero."
+  },
+  "notifySuccess": {
+    "message": "¡Markdown copiado al portapapeles!"
+  },
+  "notifyErrorPrefix": {
+    "message": "No se pudo procesar el portapapeles."
+  },
+  "toolbar_bold": {
+    "message": "Negrita"
+  },
+  "toolbar_italic": {
+    "message": "Cursiva"
+  },
+  "toolbar_link": {
+    "message": "Añadir Enlace"
+  },
+  "poweredBy": {
+    "message": "Impulsado por MDXEditor"
+  }
+}

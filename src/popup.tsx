@@ -83,7 +83,7 @@ const Popup: React.FC = () => {
         setModifiedText(markdownText);
         chrome.storage.session.set({ currentMarkdown: markdownText }, () => {
           showNotificationMsg(
-            "Markdown detected in clipboard. Click button in upper right to edit.",
+            chrome.i18n.getMessage("notifyMarkdownDetected"),
           );
           handleSave(markdownText);
         });
@@ -125,7 +125,7 @@ const Popup: React.FC = () => {
           }
         }
         showNotificationMsg(
-          "No rich text found in clipboard. Already converted?",
+          chrome.i18n.getMessage("notifyAlreadyConverted"),
         );
         return;
       }
@@ -133,9 +133,9 @@ const Popup: React.FC = () => {
       const htmlText = (await blob?.text()) ?? "";
 
       if (htmlText === "") {
-        showNotificationMsg("No rich text found in clipboard.");
+        showNotificationMsg(chrome.i18n.getMessage("notifyNoRichText"));
         setModifiedText(
-          "Only plain text found in clipboard. Copy rich text from a web page or document first.",
+          chrome.i18n.getMessage("notifyNoRichTextDetails"),
         );
         return;
       }
@@ -143,9 +143,9 @@ const Popup: React.FC = () => {
       // --- Convert HTML to Markdown ---
       const markdownText = htmlToMarkdown(htmlText);
       if (markdownText === "") {
-        showNotificationMsg("No rich text found in clipboard.");
+        showNotificationMsg(chrome.i18n.getMessage("notifyNoRichText"));
         setModifiedText(
-          "No text found in clipboard. Copy rich text from a web page or document first.",
+          chrome.i18n.getMessage("notifyNoTextDetails"),
         );
         return;
       }
@@ -154,13 +154,13 @@ const Popup: React.FC = () => {
       await navigator.clipboard.writeText(markdownText);
       chrome.storage.session.set({ currentMarkdown: markdownText }, () => {
         showNotificationMsg(
-          "Clipboard updated successfully and added to clipboard.",
+          chrome.i18n.getMessage("notifySuccess"),
         );
         handleSave(markdownText);
       });
     } catch (err) {
       console.error("Failed to read/write clipboard:", err);
-      showNotificationMsg(`Was not able to process clipboard. ${err}.`);
+      showNotificationMsg(`${chrome.i18n.getMessage("notifyErrorPrefix")} ${err}.`);
     }
   };
 
@@ -175,18 +175,20 @@ const Popup: React.FC = () => {
 
   return (
     <div className="popup-container">
-      <h1>Markdown for AI prompts</h1>
-      <p>Converts rich text in your clipboard to AI prompt friendly format.</p>
+      <h1>{chrome.i18n.getMessage("popupTitle")}</h1>
+      <p>{chrome.i18n.getMessage("popupSubtitle")}</p>
       <div className="floating-button-container">
         <button
-          aria-label="Open editor in new tab"
+          aria-label={chrome.i18n.getMessage("openEditorAria")}
           onClick={openOptionsClick}
           className="iconbutton"
         >
           <img src={openIconSrc} className="iconbuttonsvg" />
         </button>
       </div>
-      <button onClick={handleCopyModifyPaste}>Modify Clipboard</button>
+      <button onClick={handleCopyModifyPaste}>
+        {chrome.i18n.getMessage("modifyClipboardBtn")}
+      </button>
       <textarea
         ref={textareaRef}
         className="modifiedTextArea"
@@ -198,7 +200,7 @@ const Popup: React.FC = () => {
       />
       <div className="floating-button-container-bottom">
         <button
-          aria-label="Clear"
+          aria-label={chrome.i18n.getMessage("clearAria")}
           onClick={clearContentClick}
           className="iconbutton"
         >

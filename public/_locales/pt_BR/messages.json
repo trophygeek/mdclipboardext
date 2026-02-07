@@ -1,0 +1,62 @@
+{
+  "appName": {
+    "message": "Conversor de Área de Transferência Markdown"
+  },
+  "appDesc": {
+    "message": "Transforme instantaneamente conteúdo formatado em Markdown pronto para IA."
+  },
+  "actionTitle": {
+    "message": "Converter Área de Transferência para Markdown"
+  },
+  "popupTitle": {
+    "message": "Markdown para Prompts de IA"
+  },
+  "popupSubtitle": {
+    "message": "Transforme conteúdo formatado em Markdown para ferramentas de IA."
+  },
+  "modifyClipboardBtn": {
+    "message": "Converter Área de Transferência"
+  },
+  "modifiedTextPlaceholder": {
+    "message": "O conteúdo convertido aparecerá aqui..."
+  },
+  "openEditorAria": {
+    "message": "Abrir editor em uma nova guia"
+  },
+  "clearAria": {
+    "message": "Limpar conteúdo"
+  },
+  "notifyMarkdownDetected": {
+    "message": "Markdown detectado. Edite usando o botão no canto superior direito."
+  },
+  "notifyNoRichText": {
+    "message": "Nenhum conteúdo formatado encontrado."
+  },
+  "notifyNoRichTextDetails": {
+    "message": "Apenas texto simples encontrado. Copie conteúdo formatado (como tabelas) primeiro."
+  },
+  "notifyAlreadyConverted": {
+    "message": "Nada encontrado. Já convertido?"
+  },
+  "notifyNoTextDetails": {
+    "message": "A área de transferência está vazia. Copie algum conteúdo primeiro."
+  },
+  "notifySuccess": {
+    "message": "Markdown copiado para a área de transferência!"
+  },
+  "notifyErrorPrefix": {
+    "message": "Não foi possível processar a área de transferência."
+  },
+  "toolbar_bold": {
+    "message": "Negrito"
+  },
+  "toolbar_italic": {
+    "message": "Itálico"
+  },
+  "toolbar_link": {
+    "message": "Adicionar Link"
+  },
+  "poweredBy": {
+    "message": "Desenvolvido por MDXEditor"
+  }
+}
