@@ -1,0 +1,59 @@
+{
+  "appName": {
+    "message": "Convertisseur de Presse-papiers Markdown"
+  },
+  "appDesc": {
+    "message": "Transformez instantanément le contenu formaté en Markdown prêt pour l'IA."
+  },
+  "actionTitle": {
+    "message": "Convertir le Presse-papiers en Markdown"
+  },
+  "popupTitle": {
+    "message": "Markdown pour Prompts IA"
+  },
+  "popupSubtitle": {
+    "message": "Transformez le contenu formaté en Markdown pour les outils d'IA."
+  },
+  "modifyClipboardBtn": {
+    "message": "Convertir Presse-papiers"
+  },
+  "modifiedTextPlaceholder": {
+    "message": "Le contenu converti apparaîtra ici..."
+  },
+  "openEditorAria": {
+    "message": "Ouvrir l'éditeur dans un nouvel onglet"
+  },
+  "clearAria": {
+    "message": "Effacer le contenu"
+  },
+  "notifyMarkdownDetected": {
+    "message": "Markdown détecté. Modifiez avec le bouton en haut à droite."
+  },
+  "notifyNoRichText": {
+    "message": "Aucun contenu formaté trouvé."
+  },
+  "notifyNoRichTextDetails": {
+    "message": "Seul du texte brut a été trouvé. Copiez d'abord du contenu formaté (comme des tableaux)."
+  },
+  "notifyAlreadyConverted": {
+    "message": "Rien trouvé. Déjà converti ?"
+  },
+  "notifyNoTextDetails": {
+    "message": "Le presse-papiers est vide. Copiez d'abord du contenu."
+  },
+  "notifySuccess": {
+    "message": "Markdown copié dans le presse-papiers !"
+  },
+  "notifyErrorPrefix": {
+    "message": "Impossible de traiter le presse-papiers."
+  },
+  "toolbar_bold": {
+    "message": "Gras"
+  },
+  "toolbar_italic": {
+    "message": "Italique"
+  },
+  "toolbar_link": {
+    "message": "Ajouter un lien"
+  }
+}

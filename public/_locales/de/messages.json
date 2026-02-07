@@ -1,0 +1,59 @@
+{
+  "appName": {
+    "message": "Markdown-Zwischenablage-Konverter"
+  },
+  "appDesc": {
+    "message": "Wandeln Sie formatierten Inhalt sofort in KI-bereites Markdown um."
+  },
+  "actionTitle": {
+    "message": "Zwischenablage in Markdown konvertieren"
+  },
+  "popupTitle": {
+    "message": "Markdown für KI-Prompts"
+  },
+  "popupSubtitle": {
+    "message": "Wandeln Sie formatierten Inhalt in Markdown für KI-Tools um."
+  },
+  "modifyClipboardBtn": {
+    "message": "Zwischenablage konvertieren"
+  },
+  "modifiedTextPlaceholder": {
+    "message": "Konvertierter Inhalt erscheint hier..."
+  },
+  "openEditorAria": {
+    "message": "Editor in neuem Tab öffnen"
+  },
+  "clearAria": {
+    "message": "Inhalt löschen"
+  },
+  "notifyMarkdownDetected": {
+    "message": "Markdown erkannt. Bearbeiten Sie es über die Schaltfläche oben rechts."
+  },
+  "notifyNoRichText": {
+    "message": "Kein formatierter Inhalt gefunden."
+  },
+  "notifyNoRichTextDetails": {
+    "message": "Nur einfacher Text gefunden. Kopieren Sie zuerst formatierten Inhalt (wie Tabellen)."
+  },
+  "notifyAlreadyConverted": {
+    "message": "Nichts gefunden. Bereits konvertiert?"
+  },
+  "notifyNoTextDetails": {
+    "message": "Zwischenablage ist leer. Kopieren Sie zuerst Inhalt."
+  },
+  "notifySuccess": {
+    "message": "Markdown in die Zwischenablage kopiert!"
+  },
+  "notifyErrorPrefix": {
+    "message": "Konnte Zwischenablage nicht verarbeiten."
+  },
+  "toolbar_bold": {
+    "message": "Fett"
+  },
+  "toolbar_italic": {
+    "message": "Kursiv"
+  },
+  "toolbar_link": {
+    "message": "Link hinzufügen"
+  }
+}

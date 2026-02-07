@@ -1,78 +1,59 @@
 {
   "appName": {
-    "message": "[ES] Markdown clipboard converter",
-    "description": "The name of the application"
+    "message": "Convertidor de Portapapeles a Markdown"
   },
   "appDesc": {
-    "message": "[ES] Quickly convert formatted content into AI friendly markdown",
-    "description": "The description of the application"
+    "message": "Convierte instantáneamente contenido formateado en Markdown listo para IA."
   },
   "actionTitle": {
-    "message": "[ES] Convert Clipboard to Markdown",
-    "description": "Title of the action button"
+    "message": "Convertir Portapapeles a Markdown"
   },
   "popupTitle": {
-    "message": "[ES] Markdown for AI prompts",
-    "description": "Main title in the popup"
+    "message": "Markdown para Prompts de IA"
   },
   "popupSubtitle": {
-    "message": "[ES] Converts rich text in your clipboard to AI prompt friendly format.",
-    "description": "Subtitle description in the popup"
+    "message": "Transforma contenido formateado en Markdown para herramientas de IA."
   },
   "modifyClipboardBtn": {
-    "message": "[ES] Modify Clipboard",
-    "description": "Button text to modify clipboard"
+    "message": "Convertir Portapapeles"
   },
   "modifiedTextPlaceholder": {
-    "message": "[ES] Modified text will appear here",
-    "description": "Placeholder for the text area"
+    "message": "El contenido convertido aparecerá aquí..."
   },
   "openEditorAria": {
-    "message": "[ES] Open editor in new tab",
-    "description": "Aria label for opening the editor"
+    "message": "Abrir editor en una nueva pestaña"
   },
   "clearAria": {
-    "message": "[ES] Clear",
-    "description": "Aria label for the clear button"
+    "message": "Borrar contenido"
   },
   "notifyMarkdownDetected": {
-    "message": "[ES] Markdown detected in clipboard. Click button in upper right to edit.",
-    "description": "Notification when markdown is found"
+    "message": "Markdown detectado. Edita usando el botón superior derecho."
   },
   "notifyNoRichText": {
-    "message": "[ES] No rich text found in clipboard.",
-    "description": "Notification when no rich text is found"
+    "message": "No se encontró contenido formateado."
   },
   "notifyNoRichTextDetails": {
-    "message": "[ES] Only plain text found in clipboard. Copy rich text from a web page or document first.",
-    "description": "Detailed error message when only plain text is found"
+    "message": "Solo se encontró texto plano. Copia primero contenido formateado (como tablas)."
   },
   "notifyAlreadyConverted": {
-    "message": "[ES] No rich text found in clipboard. Already converted?",
-    "description": "Notification when text might already be markdown"
+    "message": "Nada encontrado. ¿Ya está convertido?"
   },
   "notifyNoTextDetails": {
-    "message": "[ES] No text found in clipboard. Copy rich text from a web page or document first.",
-    "description": "Detailed error message when clipboard is empty"
+    "message": "El portapapeles está vacío. Copia algún contenido primero."
   },
   "notifySuccess": {
-    "message": "[ES] Clipboard updated successfully and added to clipboard.",
-    "description": "Success notification"
+    "message": "¡Markdown copiado al portapapeles!"
   },
   "notifyErrorPrefix": {
-    "message": "[ES] Was not able to process clipboard.",
-    "description": "Error notification prefix"
+    "message": "No se pudo procesar el portapapeles."
   },
   "toolbar_bold": {
-    "message": "[ES] Bold",
-    "description": "Toolbar bold button"
+    "message": "Negrita"
   },
   "toolbar_italic": {
-    "message": "[ES] Italic",
-    "description": "Toolbar italic button"
+    "message": "Cursiva"
   },
   "toolbar_link": {
-    "message": "[ES] Link",
-    "description": "Toolbar link button"
+    "message": "Añadir Enlace"
   }
 }
