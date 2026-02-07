@@ -1,0 +1,62 @@
+{
+  "appName": {
+    "message": "Markdown 剪贴板转换器"
+  },
+  "appDesc": {
+    "message": "即时将格式化内容转换为适用于 AI 的 Markdown。"
+  },
+  "actionTitle": {
+    "message": "将剪贴板转换为 Markdown"
+  },
+  "popupTitle": {
+    "message": "用于 AI 提示的 Markdown"
+  },
+  "popupSubtitle": {
+    "message": "将格式化内容转换为适用于 AI 工具的 Markdown。"
+  },
+  "modifyClipboardBtn": {
+    "message": "转换剪贴板"
+  },
+  "modifiedTextPlaceholder": {
+    "message": "转换后的内容将显示在这里..."
+  },
+  "openEditorAria": {
+    "message": "在新标签页中打开编辑器"
+  },
+  "clearAria": {
+    "message": "清除内容"
+  },
+  "notifyMarkdownDetected": {
+    "message": "检测到 Markdown。使用右上角的按钮进行编辑。"
+  },
+  "notifyNoRichText": {
+    "message": "未找到格式化内容。"
+  },
+  "notifyNoRichTextDetails": {
+    "message": "仅找到纯文本。请先复制格式化内容（如表格）。"
+  },
+  "notifyAlreadyConverted": {
+    "message": "未找到任何内容。是否已转换？"
+  },
+  "notifyNoTextDetails": {
+    "message": "剪贴板为空。请先复制一些内容。"
+  },
+  "notifySuccess": {
+    "message": "Markdown 已复制到剪贴板！"
+  },
+  "notifyErrorPrefix": {
+    "message": "无法处理剪贴板。"
+  },
+  "toolbar_bold": {
+    "message": "粗体"
+  },
+  "toolbar_italic": {
+    "message": "斜体"
+  },
+  "toolbar_link": {
+    "message": "添加链接"
+  },
+  "poweredBy": {
+    "message": "由 MDXEditor 提供支持"
+  }
+}

@@ -1,1 +1,82 @@
-{}
+{
+  "appName": {
+    "message": "Markdown Clipboard Converter",
+    "description": "The name of the application"
+  },
+  "appDesc": {
+    "message": "Instantly turn formatted content into AI-ready Markdown.",
+    "description": "The description of the application"
+  },
+  "actionTitle": {
+    "message": "Convert Clipboard to Markdown",
+    "description": "Title of the action button"
+  },
+  "popupTitle": {
+    "message": "Markdown for AI Prompts",
+    "description": "Main title in the popup"
+  },
+  "popupSubtitle": {
+    "message": "Turn formatted content into Markdown for AI tools.",
+    "description": "Subtitle description in the popup"
+  },
+  "modifyClipboardBtn": {
+    "message": "Convert Clipboard",
+    "description": "Button text to modify clipboard"
+  },
+  "modifiedTextPlaceholder": {
+    "message": "Converted content will appear here...",
+    "description": "Placeholder for the text area"
+  },
+  "openEditorAria": {
+    "message": "Open editor in a new tab",
+    "description": "Aria label for opening the editor"
+  },
+  "clearAria": {
+    "message": "Clear content",
+    "description": "Aria label for the clear button"
+  },
+  "notifyMarkdownDetected": {
+    "message": "Markdown detected. Edit using the top right button.",
+    "description": "Notification when markdown is found"
+  },
+  "notifyNoRichText": {
+    "message": "No formatted content found.",
+    "description": "The summary message for missing formatted text"
+  },
+  "notifyNoRichTextDetails": {
+    "message": "Only plain text found. Copy formatted content (like tables) first.",
+    "description": "Detailed error message when only plain text is found"
+  },
+  "notifyAlreadyConverted": {
+    "message": "Nothing found. Already converted?",
+    "description": "Notification when text might already be markdown"
+  },
+  "notifyNoTextDetails": {
+    "message": "Clipboard is empty. Copy some content first.",
+    "description": "Detailed error message when clipboard is empty"
+  },
+  "notifySuccess": {
+    "message": "Markdown copied to clipboard!",
+    "description": "Success notification"
+  },
+  "notifyErrorPrefix": {
+    "message": "Couldn't process clipboard.",
+    "description": "Error notification prefix"
+  },
+  "toolbar_bold": {
+    "message": "Bold",
+    "description": "Toolbar bold button"
+  },
+  "toolbar_italic": {
+    "message": "Italic",
+    "description": "Toolbar italic button"
+  },
+  "toolbar_link": {
+    "message": "Add Link",
+    "description": "Toolbar link button"
+  },
+  "poweredBy": {
+    "message": "Powered by MDXEditor",
+    "description": "Credit to MDXEditor"
+  }
+}

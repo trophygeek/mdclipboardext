@@ -1,0 +1,62 @@
+{
+  "appName": {
+    "message": "Markdownクリップボードコンバーター"
+  },
+  "appDesc": {
+    "message": "フォーマットされたコンテンツをAI対応のMarkdownに即座に変換します。"
+  },
+  "actionTitle": {
+    "message": "クリップボードをMarkdownに変換"
+  },
+  "popupTitle": {
+    "message": "AIプロンプト用Markdown"
+  },
+  "popupSubtitle": {
+    "message": "フォーマットされたコンテンツをAIツール用のMarkdownに変換します。"
+  },
+  "modifyClipboardBtn": {
+    "message": "クリップボードを変換"
+  },
+  "modifiedTextPlaceholder": {
+    "message": "変換されたコンテンツがここに表示されます..."
+  },
+  "openEditorAria": {
+    "message": "新しいタブでエディタを開く"
+  },
+  "clearAria": {
+    "message": "コンテンツを消去"
+  },
+  "notifyMarkdownDetected": {
+    "message": "Markdownが検出されました。右上のボタンを使用して編集してください。"
+  },
+  "notifyNoRichText": {
+    "message": "フォーマットされたコンテンツが見つかりませんでした。"
+  },
+  "notifyNoRichTextDetails": {
+    "message": "プレーンテキストのみが見つかりました。最初にフォーマットされたコンテンツ（表など）をコピーしてください。"
+  },
+  "notifyAlreadyConverted": {
+    "message": "見つかりません。すでに変換されていますか？"
+  },
+  "notifyNoTextDetails": {
+    "message": "クリップボードが空です。最初にコンテンツをコピーしてください。"
+  },
+  "notifySuccess": {
+    "message": "Markdownがクリップボードにコピーされました！"
+  },
+  "notifyErrorPrefix": {
+    "message": "クリップボードを処理できませんでした。"
+  },
+  "toolbar_bold": {
+    "message": "太字"
+  },
+  "toolbar_italic": {
+    "message": "斜体"
+  },
+  "toolbar_link": {
+    "message": "リンクを追加"
+  },
+  "poweredBy": {
+    "message": "MDXEditorにより提供"
+  }
+}

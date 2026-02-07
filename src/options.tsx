@@ -178,6 +178,19 @@ const OptionsPage: React.FC<OptionsProps> = () => {
     d: "D",
     powershell: "PowerShell",
   };
+  
+  const mdxTranslation = (key: string, defaultValue?: string): string => {
+     // We sanitize the key because chrome.i18n keys must not contain dots usually, 
+     // but mdxeditor keys look like 'toolbar.bold'. 
+     // chrome.i18n allows dots, but let's be safe and ensure we map if needed.
+     // For now, we try to fetch as is.
+     
+     // Note: chrome.i18n.getMessage returns "" on failure and sets runtime.lastError
+     const sanitizedKey = key.replace(/\./g, "_");
+     const translated = chrome.i18n.getMessage(sanitizedKey);
+     if (translated) return translated;
+     return defaultValue || key;
+  };
 
   return (
     <main>
@@ -186,6 +199,7 @@ const OptionsPage: React.FC<OptionsProps> = () => {
         ref={mdxeditorref}
         markdown={""}
         onChange={handleInputChange}
+        translation={mdxTranslation}
         toMarkdownOptions={toMarkdownOptions}
         suppressHtmlProcessing={true}
         plugins={[
@@ -235,6 +249,9 @@ const OptionsPage: React.FC<OptionsProps> = () => {
           }),
         ]}
       />
+      <div className="powered-by-pillbox">
+        {chrome.i18n.getMessage("poweredBy")}
+      </div>
     </main>
   );
 };
