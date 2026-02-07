@@ -1,78 +1,78 @@
 {
   "appName": {
-    "message": "Markdown Clipboard Converter",
+    "message": "[ES] Markdown clipboard converter",
     "description": "The name of the application"
   },
   "appDesc": {
-    "message": "Instantly turn formatted content into AI-ready Markdown.",
+    "message": "[ES] Quickly convert formatted content into AI friendly markdown",
     "description": "The description of the application"
   },
   "actionTitle": {
-    "message": "Convert Clipboard to Markdown",
+    "message": "[ES] Convert Clipboard to Markdown",
     "description": "Title of the action button"
   },
   "popupTitle": {
-    "message": "Markdown for AI Prompts",
+    "message": "[ES] Markdown for AI prompts",
     "description": "Main title in the popup"
   },
   "popupSubtitle": {
-    "message": "Turn formatted content into Markdown for AI tools.",
+    "message": "[ES] Converts rich text in your clipboard to AI prompt friendly format.",
     "description": "Subtitle description in the popup"
   },
   "modifyClipboardBtn": {
-    "message": "Convert Clipboard",
+    "message": "[ES] Modify Clipboard",
     "description": "Button text to modify clipboard"
   },
   "modifiedTextPlaceholder": {
-    "message": "Converted content will appear here...",
+    "message": "[ES] Modified text will appear here",
     "description": "Placeholder for the text area"
   },
   "openEditorAria": {
-    "message": "Open editor in a new tab",
+    "message": "[ES] Open editor in new tab",
     "description": "Aria label for opening the editor"
   },
   "clearAria": {
-    "message": "Clear content",
+    "message": "[ES] Clear",
     "description": "Aria label for the clear button"
   },
   "notifyMarkdownDetected": {
-    "message": "Markdown detected. Edit using the top right button.",
+    "message": "[ES] Markdown detected in clipboard. Click button in upper right to edit.",
     "description": "Notification when markdown is found"
   },
   "notifyNoRichText": {
-    "message": "No formatted content found.",
-    "description": "The summary message for missing formatted text"
+    "message": "[ES] No rich text found in clipboard.",
+    "description": "Notification when no rich text is found"
   },
   "notifyNoRichTextDetails": {
-    "message": "Only plain text found. Copy formatted content (like tables) first.",
+    "message": "[ES] Only plain text found in clipboard. Copy rich text from a web page or document first.",
     "description": "Detailed error message when only plain text is found"
   },
   "notifyAlreadyConverted": {
-    "message": "Nothing found. Already converted?",
+    "message": "[ES] No rich text found in clipboard. Already converted?",
     "description": "Notification when text might already be markdown"
   },
   "notifyNoTextDetails": {
-    "message": "Clipboard is empty. Copy some content first.",
+    "message": "[ES] No text found in clipboard. Copy rich text from a web page or document first.",
     "description": "Detailed error message when clipboard is empty"
   },
   "notifySuccess": {
-    "message": "Markdown copied to clipboard!",
+    "message": "[ES] Clipboard updated successfully and added to clipboard.",
     "description": "Success notification"
   },
   "notifyErrorPrefix": {
-    "message": "Couldn't process clipboard.",
+    "message": "[ES] Was not able to process clipboard.",
     "description": "Error notification prefix"
   },
   "toolbar_bold": {
-    "message": "Bold",
+    "message": "[ES] Bold",
     "description": "Toolbar bold button"
   },
   "toolbar_italic": {
-    "message": "Italic",
+    "message": "[ES] Italic",
     "description": "Toolbar italic button"
   },
   "toolbar_link": {
-    "message": "Add Link",
+    "message": "[ES] Link",
     "description": "Toolbar link button"
   }
 }
