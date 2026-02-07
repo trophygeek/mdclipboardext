@@ -55,5 +55,8 @@
   },
   "toolbar_link": {
     "message": "添加链接"
+  },
+  "poweredBy": {
+    "message": "由 MDXEditor 提供支持"
   }
 }

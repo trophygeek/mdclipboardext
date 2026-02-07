@@ -249,6 +249,9 @@ const OptionsPage: React.FC<OptionsProps> = () => {
           }),
         ]}
       />
+      <div className="powered-by-pillbox">
+        {chrome.i18n.getMessage("poweredBy")}
+      </div>
     </main>
   );
 };

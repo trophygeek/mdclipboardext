@@ -55,5 +55,8 @@
   },
   "toolbar_link": {
     "message": "リンクを追加"
+  },
+  "poweredBy": {
+    "message": "MDXEditorにより提供"
   }
 }

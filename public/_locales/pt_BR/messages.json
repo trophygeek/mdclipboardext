@@ -55,5 +55,8 @@
   },
   "toolbar_link": {
     "message": "Adicionar Link"
+  },
+  "poweredBy": {
+    "message": "Desenvolvido por MDXEditor"
   }
 }

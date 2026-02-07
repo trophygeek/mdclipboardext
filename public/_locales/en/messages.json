@@ -74,5 +74,9 @@
   "toolbar_link": {
     "message": "Add Link",
     "description": "Toolbar link button"
+  },
+  "poweredBy": {
+    "message": "Powered by MDXEditor",
+    "description": "Credit to MDXEditor"
   }
 }

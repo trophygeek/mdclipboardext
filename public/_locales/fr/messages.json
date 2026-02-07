@@ -55,5 +55,8 @@
   },
   "toolbar_link": {
     "message": "Ajouter un lien"
+  },
+  "poweredBy": {
+    "message": "Propulsé par MDXEditor"
   }
 }
