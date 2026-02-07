@@ -58,5 +58,85 @@
   },
   "poweredBy": {
     "message": "Impulsado por MDXEditor"
+  },
+  "welcomeModalTitle": {
+    "message": "Bienvenido a MD Clipboard Editor",
+    "description": "Title of the welcome modal"
+  },
+  "welcomeIntroEmpty": {
+    "message": "Has abierto el editor directamente. Puedes escribir Markdown o pegar contenido aquí.",
+    "description": "Intro text when editor is empty"
+  },
+  "welcomeIntroContent": {
+    "message": "El contenido de tu portapapeles se ha convertido exitosamente a Markdown.",
+    "description": "Intro text when content is present"
+  },
+  "welcomeEditorModesTitle": {
+    "message": "Modos de Editor",
+    "description": "Heading for editor modes section"
+  },
+  "welcomeEditorModesIntro": {
+    "message": "Usa los botones de la barra de herramientas para cambiar vistas:",
+    "description": "Intro for editor modes"
+  },
+  "modeRichTextAlt": {
+    "message": "Texto Enriquecido",
+    "description": "Alt text for Rich Text mode icon"
+  },
+  "modeRichTextLabel": {
+    "message": "Texto Enriquecido:",
+    "description": "Label for Rich Text mode"
+  },
+  "modeRichTextDesc": {
+    "message": "Edición de contenido rico.",
+    "description": "Description for Rich Text mode"
+  },
+  "modeDiffAlt": {
+    "message": "Diferencias",
+    "description": "Alt text for Diff mode icon"
+  },
+  "modeDiffLabel": {
+    "message": "Diferencias:",
+    "description": "Label for Diff mode"
+  },
+  "modeDiffDesc": {
+    "message": "Comparar cambios.",
+    "description": "Description for Diff mode"
+  },
+  "modeMarkdownAlt": {
+    "message": "Markdown",
+    "description": "Alt text for Markdown mode icon"
+  },
+  "modeMarkdownLabel": {
+    "message": "Markdown:",
+    "description": "Label for Markdown mode"
+  },
+  "modeMarkdownDesc": {
+    "message": "Editar texto plano.",
+    "description": "Description for Markdown mode"
+  },
+  "welcomePersistenceTitle": {
+    "message": "Persistencia de Datos",
+    "description": "Heading for persistence section"
+  },
+  "welcomePersistencePart1": {
+    "message": "El contenido se guarda en el ",
+    "description": "First part of persistence text"
+  },
+  "welcomePersistencePart2": {
+    "message": "almacenamiento de sesión",
+    "description": "Bolded part of persistence text"
+  },
+  "welcomePersistencePart3": {
+    "message": " de tu navegador. Se borrará cuando cierres la pestaña o el navegador.",
+    "description": "Last part of persistence text"
+  },
+  "welcomeGetStartedBtn": {
+    "message": "Empezar",
+    "description": "Label for the close button"
+  },
+  "welcomePoweredByPrefix": {
+    "message": "Impulsado por ",
+    "description": "Prefix for the powered by link"
   }
 }

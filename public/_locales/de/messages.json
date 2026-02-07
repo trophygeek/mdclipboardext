@@ -57,6 +57,86 @@
     "message": "Link hinzufügen"
   },
   "poweredBy": {
-    "message": "Bereitgestellt von MDXEditor"
+    "message": "Basiert auf MDXEditor"
+  },
+  "welcomeModalTitle": {
+    "message": "Willkommen beim MD Clipboard Editor",
+    "description": "Title of the welcome modal"
+  },
+  "welcomeIntroEmpty": {
+    "message": "Sie haben den Editor direkt geöffnet. Sie können hier Markdown schreiben oder Inhalt einfügen.",
+    "description": "Intro text when editor is empty"
+  },
+  "welcomeIntroContent": {
+    "message": "Ihr Inhalt aus der Zwischenablage wurde erfolgreich in Markdown konvertiert.",
+    "description": "Intro text when content is present"
+  },
+  "welcomeEditorModesTitle": {
+    "message": "Editor-Modi",
+    "description": "Heading for editor modes section"
+  },
+  "welcomeEditorModesIntro": {
+    "message": "Verwenden Sie die Schaltflächen in der Symbolleiste, um die Ansicht zu wechseln:",
+    "description": "Intro for editor modes"
+  },
+  "modeRichTextAlt": {
+    "message": "Rich Text",
+    "description": "Alt text for Rich Text mode icon"
+  },
+  "modeRichTextLabel": {
+    "message": "Rich Text:",
+    "description": "Label for Rich Text mode"
+  },
+  "modeRichTextDesc": {
+    "message": "Bearbeiten von formatiertem Inhalt.",
+    "description": "Description for Rich Text mode"
+  },
+  "modeDiffAlt": {
+    "message": "Diff",
+    "description": "Alt text for Diff mode icon"
+  },
+  "modeDiffLabel": {
+    "message": "Diff:",
+    "description": "Label for Diff mode"
+  },
+  "modeDiffDesc": {
+    "message": "Änderungen vergleichen.",
+    "description": "Description for Diff mode"
+  },
+  "modeMarkdownAlt": {
+    "message": "Markdown",
+    "description": "Alt text for Markdown mode icon"
+  },
+  "modeMarkdownLabel": {
+    "message": "Markdown:",
+    "description": "Label for Markdown mode"
+  },
+  "modeMarkdownDesc": {
+    "message": "Einfachen Text bearbeiten.",
+    "description": "Description for Markdown mode"
+  },
+  "welcomePersistenceTitle": {
+    "message": "Datenspeicherung",
+    "description": "Heading for persistence section"
+  },
+  "welcomePersistencePart1": {
+    "message": "Inhalt wird im ",
+    "description": "First part of persistence text"
+  },
+  "welcomePersistencePart2": {
+    "message": "Sitzungsspeicher",
+    "description": "Bolded part of persistence text"
+  },
+  "welcomePersistencePart3": {
+    "message": " Ihres Browsers gespeichert. Er wird gelöscht, wenn Sie den Tab oder Browser schließen.",
+    "description": "Last part of persistence text"
+  },
+  "welcomeGetStartedBtn": {
+    "message": "Loslegen",
+    "description": "Label for the close button"
+  },
+  "welcomePoweredByPrefix": {
+    "message": "Basiert auf ",
+    "description": "Prefix for the powered by link"
   }
 }

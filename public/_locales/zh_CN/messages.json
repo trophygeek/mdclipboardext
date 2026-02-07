@@ -57,6 +57,86 @@
     "message": "添加链接"
   },
   "poweredBy": {
-    "message": "由 MDXEditor 提供支持"
+    "message": "基于 MDXEditor"
+  },
+  "welcomeModalTitle": {
+    "message": "欢迎使用 MD Clipboard Editor",
+    "description": "Title of the welcome modal"
+  },
+  "welcomeIntroEmpty": {
+    "message": "您已直接打开编辑器。您可以在此处编写 Markdown 或粘贴内容。",
+    "description": "Intro text when editor is empty"
+  },
+  "welcomeIntroContent": {
+    "message": "您的剪贴板内容已成功转换为 Markdown。",
+    "description": "Intro text when content is present"
+  },
+  "welcomeEditorModesTitle": {
+    "message": "编辑器模式",
+    "description": "Heading for editor modes section"
+  },
+  "welcomeEditorModesIntro": {
+    "message": "使用工具栏中的按钮切换视图：",
+    "description": "Intro for editor modes"
+  },
+  "modeRichTextAlt": {
+    "message": "富文本",
+    "description": "Alt text for Rich Text mode icon"
+  },
+  "modeRichTextLabel": {
+    "message": "富文本：",
+    "description": "Label for Rich Text mode"
+  },
+  "modeRichTextDesc": {
+    "message": "富文本编辑。",
+    "description": "Description for Rich Text mode"
+  },
+  "modeDiffAlt": {
+    "message": "差异",
+    "description": "Alt text for Diff mode icon"
+  },
+  "modeDiffLabel": {
+    "message": "差异：",
+    "description": "Label for Diff mode"
+  },
+  "modeDiffDesc": {
+    "message": "比较更改。",
+    "description": "Description for Diff mode"
+  },
+  "modeMarkdownAlt": {
+    "message": "Markdown",
+    "description": "Alt text for Markdown mode icon"
+  },
+  "modeMarkdownLabel": {
+    "message": "Markdown：",
+    "description": "Label for Markdown mode"
+  },
+  "modeMarkdownDesc": {
+    "message": "编辑纯文本。",
+    "description": "Description for Markdown mode"
+  },
+  "welcomePersistenceTitle": {
+    "message": "数据持久化",
+    "description": "Heading for persistence section"
+  },
+  "welcomePersistencePart1": {
+    "message": "内容保存在浏览器的",
+    "description": "First part of persistence text"
+  },
+  "welcomePersistencePart2": {
+    "message": "会话存储",
+    "description": "Bolded part of persistence text"
+  },
+  "welcomePersistencePart3": {
+    "message": "中。关闭标签页或浏览器时将被清除。",
+    "description": "Last part of persistence text"
+  },
+  "welcomeGetStartedBtn": {
+    "message": "开始使用",
+    "description": "Label for the close button"
+  },
+  "welcomePoweredByPrefix": {
+    "message": "基于 ",
+    "description": "Prefix for the powered by link"
   }
 }

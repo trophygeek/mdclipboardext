@@ -34,6 +34,7 @@ import {
 import "@mdxeditor/editor/style.css";
 import "./options.css";
 import { gfmToMarkdown } from "mdast-util-gfm";
+import WelcomeModal from "./WelcomeModal";
 
 const toMarkdownOptions: Options = {
   bullet: "-",
@@ -53,6 +54,8 @@ const OptionsPage: React.FC<OptionsProps> = () => {
   const [initialMarkdown, setInitialMarkdown] = useState<string | undefined>(
     undefined,
   );
+  const [showWelcome, setShowWelcome] = useState(false);
+  const [isEditorEmpty, setIsEditorEmpty] = useState(true);
 
   const getInitialMarkdown = async (): Promise<string | undefined> => {
     const data = await chrome.storage.session.get("currentMarkdown");
@@ -62,7 +65,7 @@ const OptionsPage: React.FC<OptionsProps> = () => {
     return undefined;
   };
 
-  const loadSaved = async (): Promise<string | undefined> => {
+  const loadSaved = async (): Promise<{ markdown: string | undefined; empty: boolean } | undefined> => {
     if (recurrenceRef.current) {
       return;
     }
@@ -71,10 +74,13 @@ const OptionsPage: React.FC<OptionsProps> = () => {
     if (data.currentMarkdown && typeof data.currentMarkdown === "string") {
       mdxeditorref.current?.setMarkdown(data.currentMarkdown);
       recurrenceRef.current = false;
-      return data.currentMarkdown;
+      const empty = !data.currentMarkdown.trim();
+      setIsEditorEmpty(empty);
+      return { markdown: data.currentMarkdown, empty };
     }
     recurrenceRef.current = false;
-    return undefined;
+    setIsEditorEmpty(true);
+    return { markdown: undefined, empty: true };
   };
 
   const handleSave = (value: string): void => {
@@ -112,7 +118,26 @@ const OptionsPage: React.FC<OptionsProps> = () => {
 
   // Load and sync editor content with storage
   useEffect(() => {
-    loadSaved();
+    // Coordinate initial load and welcome check to determine auto-focus
+    const init = async () => {
+        const [loadResult, storageResult] = await Promise.all([
+            loadSaved(),
+            chrome.storage.local.get("hasSeenWelcome")
+        ]);
+
+        const hasSeen = storageResult.hasSeenWelcome;
+        const isEmpty = loadResult?.empty ?? true;
+
+        if (!hasSeen) {
+            setShowWelcome(true);
+        } else if (isEmpty) {
+            // If we've seen welcome and it's empty, focus immediately
+            mdxeditorref.current?.focus();
+        }
+    };
+
+    init();
+
     chrome.storage.session.onChanged.addListener(() => {
       if (!recurrenceRef.current) {
         // maybe we should confirm before reloading?
@@ -120,6 +145,7 @@ const OptionsPage: React.FC<OptionsProps> = () => {
       }
     });
   }, []);
+
 
   const codeBlockLanguages: Record<string, string> = {
     "": "text",
@@ -192,6 +218,14 @@ const OptionsPage: React.FC<OptionsProps> = () => {
      return defaultValue || key;
   };
 
+  const closeWelcome = () => {
+    setShowWelcome(false);
+    chrome.storage.local.set({ hasSeenWelcome: true });
+    if (isEditorEmpty) {
+      mdxeditorref.current?.focus();
+    }
+  };
+
   return (
     <main>
       <MDXEditor
@@ -249,9 +283,18 @@ const OptionsPage: React.FC<OptionsProps> = () => {
           }),
         ]}
       />
-      <div className="powered-by-pillbox">
-        {chrome.i18n.getMessage("poweredBy")}
-      </div>
+      <button
+        className="help-button"
+        onClick={() => setShowWelcome(true)}
+        aria-label="Help & Welcome"
+      >
+        ?
+      </button>
+      <WelcomeModal
+        isOpen={showWelcome}
+        onClose={closeWelcome}
+        isEmpty={isEditorEmpty}
+      />
     </main>
   );
 };
