@@ -78,5 +78,85 @@
   "poweredBy": {
     "message": "Powered by MDXEditor",
     "description": "Credit to MDXEditor"
+  },
+  "welcomeModalTitle": {
+    "message": "Welcome to MD Clipboard Editor",
+    "description": "Title of the welcome modal"
+  },
+  "welcomeIntroEmpty": {
+    "message": "You've opened the editor directly. You can write Markdown or paste content here.",
+    "description": "Intro text when editor is empty"
+  },
+  "welcomeIntroContent": {
+    "message": "Your clipboard content has been successfully converted to Markdown.",
+    "description": "Intro text when content is present"
+  },
+  "welcomeEditorModesTitle": {
+    "message": "Editor Modes",
+    "description": "Heading for editor modes section"
+  },
+  "welcomeEditorModesIntro": {
+    "message": "Use the toggle buttons in the toolbar to switch views:",
+    "description": "Intro for editor modes"
+  },
+  "modeRichTextAlt": {
+    "message": "Rich Text",
+    "description": "Alt text for Rich Text mode icon"
+  },
+  "modeRichTextLabel": {
+    "message": "Rich Text:",
+    "description": "Label for Rich Text mode"
+  },
+  "modeRichTextDesc": {
+    "message": "Rich content editing.",
+    "description": "Description for Rich Text mode"
+  },
+  "modeDiffAlt": {
+    "message": "Diff",
+    "description": "Alt text for Diff mode icon"
+  },
+  "modeDiffLabel": {
+    "message": "Diff:",
+    "description": "Label for Diff mode"
+  },
+  "modeDiffDesc": {
+    "message": "Compare changes.",
+    "description": "Description for Diff mode"
+  },
+  "modeMarkdownAlt": {
+    "message": "Markdown",
+    "description": "Alt text for Markdown mode icon"
+  },
+  "modeMarkdownLabel": {
+    "message": "Markdown:",
+    "description": "Label for Markdown mode"
+  },
+  "modeMarkdownDesc": {
+    "message": "Edit plain text.",
+    "description": "Description for Markdown mode"
+  },
+  "welcomePersistenceTitle": {
+    "message": "Data Persistence",
+    "description": "Heading for persistence section"
+  },
+  "welcomePersistencePart1": {
+    "message": "Content is saved to your browser's ",
+    "description": "First part of persistence text"
+  },
+  "welcomePersistencePart2": {
+    "message": "session storage",
+    "description": "Bolded part of persistence text"
+  },
+  "welcomePersistencePart3": {
+    "message": ". It will be cleared when you close the tab or browser.",
+    "description": "Last part of persistence text"
+  },
+  "welcomeGetStartedBtn": {
+    "message": "Get Started",
+    "description": "Label for the close button"
+  },
+  "welcomePoweredByPrefix": {
+    "message": "Powered by ",
+    "description": "Prefix for the powered by link"
   }
 }

@@ -57,6 +57,86 @@
     "message": "リンクを追加"
   },
   "poweredBy": {
-    "message": "MDXEditorにより提供"
+    "message": "MDXEditorを使用"
+  },
+  "welcomeModalTitle": {
+    "message": "MD Clipboard Editorへようこそ",
+    "description": "Title of the welcome modal"
+  },
+  "welcomeIntroEmpty": {
+    "message": "エディタを直接開きました。ここでMarkdownを書いたり、コンテンツを貼り付けたりできます。",
+    "description": "Intro text when editor is empty"
+  },
+  "welcomeIntroContent": {
+    "message": "クリップボードの内容がMarkdownに正常に変換されました。",
+    "description": "Intro text when content is present"
+  },
+  "welcomeEditorModesTitle": {
+    "message": "エディタモード",
+    "description": "Heading for editor modes section"
+  },
+  "welcomeEditorModesIntro": {
+    "message": "ツールバーのボタンを使用してビューを切り替えます：",
+    "description": "Intro for editor modes"
+  },
+  "modeRichTextAlt": {
+    "message": "リッチテキスト",
+    "description": "Alt text for Rich Text mode icon"
+  },
+  "modeRichTextLabel": {
+    "message": "リッチテキスト：",
+    "description": "Label for Rich Text mode"
+  },
+  "modeRichTextDesc": {
+    "message": "リッチコンテンツ編集。",
+    "description": "Description for Rich Text mode"
+  },
+  "modeDiffAlt": {
+    "message": "差分",
+    "description": "Alt text for Diff mode icon"
+  },
+  "modeDiffLabel": {
+    "message": "差分：",
+    "description": "Label for Diff mode"
+  },
+  "modeDiffDesc": {
+    "message": "変更を比較。",
+    "description": "Description for Diff mode"
+  },
+  "modeMarkdownAlt": {
+    "message": "Markdown",
+    "description": "Alt text for Markdown mode icon"
+  },
+  "modeMarkdownLabel": {
+    "message": "Markdown：",
+    "description": "Label for Markdown mode"
+  },
+  "modeMarkdownDesc": {
+    "message": "プレーンテキストを編集。",
+    "description": "Description for Markdown mode"
+  },
+  "welcomePersistenceTitle": {
+    "message": "データ保持",
+    "description": "Heading for persistence section"
+  },
+  "welcomePersistencePart1": {
+    "message": "コンテンツはブラウザの",
+    "description": "First part of persistence text"
+  },
+  "welcomePersistencePart2": {
+    "message": "セッションストレージ",
+    "description": "Bolded part of persistence text"
+  },
+  "welcomePersistencePart3": {
+    "message": "に保存されます。タブまたはブラウザを閉じると消去されます。",
+    "description": "Last part of persistence text"
+  },
+  "welcomeGetStartedBtn": {
+    "message": "始める",
+    "description": "Label for the close button"
+  },
+  "welcomePoweredByPrefix": {
+    "message": "使用： ",
+    "description": "Prefix for the powered by link"
   }
 }

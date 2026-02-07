@@ -58,5 +58,85 @@
   },
   "poweredBy": {
     "message": "Propulsé par MDXEditor"
+  },
+  "welcomeModalTitle": {
+    "message": "Bienvenue dans MD Clipboard Editor",
+    "description": "Title of the welcome modal"
+  },
+  "welcomeIntroEmpty": {
+    "message": "Vous avez ouvert l'éditeur directement. Vous pouvez écrire en Markdown ou coller du contenu ici.",
+    "description": "Intro text when editor is empty"
+  },
+  "welcomeIntroContent": {
+    "message": "Le contenu de votre presse-papiers a été converti avec succès en Markdown.",
+    "description": "Intro text when content is present"
+  },
+  "welcomeEditorModesTitle": {
+    "message": "Modes d'Éditeur",
+    "description": "Heading for editor modes section"
+  },
+  "welcomeEditorModesIntro": {
+    "message": "Utilisez les boutons de la barre d'outils pour changer de vue :",
+    "description": "Intro for editor modes"
+  },
+  "modeRichTextAlt": {
+    "message": "Texte Riche",
+    "description": "Alt text for Rich Text mode icon"
+  },
+  "modeRichTextLabel": {
+    "message": "Texte Riche :",
+    "description": "Label for Rich Text mode"
+  },
+  "modeRichTextDesc": {
+    "message": "Édition de contenu riche.",
+    "description": "Description for Rich Text mode"
+  },
+  "modeDiffAlt": {
+    "message": "Diff",
+    "description": "Alt text for Diff mode icon"
+  },
+  "modeDiffLabel": {
+    "message": "Diff :",
+    "description": "Label for Diff mode"
+  },
+  "modeDiffDesc": {
+    "message": "Comparer les modifications.",
+    "description": "Description for Diff mode"
+  },
+  "modeMarkdownAlt": {
+    "message": "Markdown",
+    "description": "Alt text for Markdown mode icon"
+  },
+  "modeMarkdownLabel": {
+    "message": "Markdown :",
+    "description": "Label for Markdown mode"
+  },
+  "modeMarkdownDesc": {
+    "message": "Éditer le texte brut.",
+    "description": "Description for Markdown mode"
+  },
+  "welcomePersistenceTitle": {
+    "message": "Persistance des Données",
+    "description": "Heading for persistence section"
+  },
+  "welcomePersistencePart1": {
+    "message": "Le contenu est enregistré dans le ",
+    "description": "First part of persistence text"
+  },
+  "welcomePersistencePart2": {
+    "message": "stockage de session",
+    "description": "Bolded part of persistence text"
+  },
+  "welcomePersistencePart3": {
+    "message": " de votre navigateur. Il sera effacé à la fermeture de l'onglet ou du navigateur.",
+    "description": "Last part of persistence text"
+  },
+  "welcomeGetStartedBtn": {
+    "message": "Commencer",
+    "description": "Label for the close button"
+  },
+  "welcomePoweredByPrefix": {
+    "message": "Propulsé par ",
+    "description": "Prefix for the powered by link"
   }
 }

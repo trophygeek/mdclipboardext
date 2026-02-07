@@ -57,6 +57,86 @@
     "message": "Adicionar Link"
   },
   "poweredBy": {
-    "message": "Desenvolvido por MDXEditor"
+    "message": "Com tecnologia MDXEditor"
+  },
+  "welcomeModalTitle": {
+    "message": "Bem-vindo ao MD Clipboard Editor",
+    "description": "Title of the welcome modal"
+  },
+  "welcomeIntroEmpty": {
+    "message": "Você abriu o editor diretamente. Você pode escrever Markdown ou colar conteúdo aqui.",
+    "description": "Intro text when editor is empty"
+  },
+  "welcomeIntroContent": {
+    "message": "O conteúdo da sua área de transferência foi convertido com sucesso para Markdown.",
+    "description": "Intro text when content is present"
+  },
+  "welcomeEditorModesTitle": {
+    "message": "Modos de Editor",
+    "description": "Heading for editor modes section"
+  },
+  "welcomeEditorModesIntro": {
+    "message": "Use os botões na barra de ferramentas para alternar as visualizações:",
+    "description": "Intro for editor modes"
+  },
+  "modeRichTextAlt": {
+    "message": "Rich Text",
+    "description": "Alt text for Rich Text mode icon"
+  },
+  "modeRichTextLabel": {
+    "message": "Rich Text:",
+    "description": "Label for Rich Text mode"
+  },
+  "modeRichTextDesc": {
+    "message": "Edição de conteúdo rico.",
+    "description": "Description for Rich Text mode"
+  },
+  "modeDiffAlt": {
+    "message": "Diff",
+    "description": "Alt text for Diff mode icon"
+  },
+  "modeDiffLabel": {
+    "message": "Diff:",
+    "description": "Label for Diff mode"
+  },
+  "modeDiffDesc": {
+    "message": "Comparar alterações.",
+    "description": "Description for Diff mode"
+  },
+  "modeMarkdownAlt": {
+    "message": "Markdown",
+    "description": "Alt text for Markdown mode icon"
+  },
+  "modeMarkdownLabel": {
+    "message": "Markdown:",
+    "description": "Label for Markdown mode"
+  },
+  "modeMarkdownDesc": {
+    "message": "Editar texto simples.",
+    "description": "Description for Markdown mode"
+  },
+  "welcomePersistenceTitle": {
+    "message": "Persistência de Dados",
+    "description": "Heading for persistence section"
+  },
+  "welcomePersistencePart1": {
+    "message": "O conteúdo é salvo no ",
+    "description": "First part of persistence text"
+  },
+  "welcomePersistencePart2": {
+    "message": "armazenamento de sessão",
+    "description": "Bolded part of persistence text"
+  },
+  "welcomePersistencePart3": {
+    "message": " do seu navegador. Ele será limpo quando você fechar a guia ou o navegador.",
+    "description": "Last part of persistence text"
+  },
+  "welcomeGetStartedBtn": {
+    "message": "Começar",
+    "description": "Label for the close button"
+  },
+  "welcomePoweredByPrefix": {
+    "message": "Com tecnologia ",
+    "description": "Prefix for the powered by link"
   }
 }
