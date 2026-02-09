@@ -1,24 +1,24 @@
 {
   "appName": {
-    "message": "Convertidor de Portapapeles a Markdown"
+    "message": "CheeseCloth - Convertidor de portapapeles a Markdown"
   },
   "appDesc": {
-    "message": "Convierte instantáneamente contenido formateado en Markdown listo para IA."
+    "message": "Convierte instantáneamente texto enriquecido en Markdown optimizado para IA."
   },
   "actionTitle": {
-    "message": "Convertir Portapapeles a Markdown"
+    "message": "Convertir portapapeles a Markdown"
   },
   "popupTitle": {
-    "message": "Markdown para Prompts de IA"
+    "message": "Markdown para prompts de IA"
   },
   "popupSubtitle": {
-    "message": "Transforma contenido formateado en Markdown para herramientas de IA."
+    "message": "Transforma contenido enriquecido en Markdown para herramientas de IA."
   },
   "modifyClipboardBtn": {
-    "message": "Convertir Portapapeles"
+    "message": "Convertir portapapeles"
   },
   "modifiedTextPlaceholder": {
-    "message": "El contenido convertido aparecerá aquí..."
+    "message": "El contenido procesado aparecerá aquí..."
   },
   "openEditorAria": {
     "message": "Abrir editor en una nueva pestaña"
@@ -27,16 +27,16 @@
     "message": "Borrar contenido"
   },
   "notifyMarkdownDetected": {
-    "message": "Markdown detectado. Edita usando el botón superior derecho."
+    "message": "Se detectó Markdown. Pulsa el botón superior para editar."
   },
   "notifyNoRichText": {
-    "message": "No se encontró contenido formateado."
+    "message": "No se detectó texto enriquecido."
   },
   "notifyNoRichTextDetails": {
-    "message": "Solo se encontró texto plano. Copia primero contenido formateado (como tablas)."
+    "message": "Solo se encontró texto sin formato. Copia primero contenido enriquecido (como tablas)."
   },
   "notifyAlreadyConverted": {
-    "message": "Nada encontrado. ¿Ya está convertido?"
+    "message": "No hay cambios. ¿Ya es Markdown?"
   },
   "notifyNoTextDetails": {
     "message": "El portapapeles está vacío. Copia algún contenido primero."
@@ -54,89 +54,69 @@
     "message": "Cursiva"
   },
   "toolbar_link": {
-    "message": "Añadir Enlace"
+    "message": "Añadir enlace"
   },
   "poweredBy": {
     "message": "Impulsado por MDXEditor"
   },
   "welcomeModalTitle": {
-    "message": "Bienvenido a MD Clipboard Editor",
-    "description": "Title of the welcome modal"
+    "message": "Bienvenido a CheeseCloth: Convertidor de portapapeles a Markdown"
   },
   "welcomeIntroEmpty": {
-    "message": "Has abierto el editor directamente. Puedes escribir Markdown o pegar contenido aquí.",
-    "description": "Intro text when editor is empty"
+    "message": "Has abierto el editor directamente. Puedes escribir Markdown o pegar contenido aquí."
   },
   "welcomeIntroContent": {
-    "message": "El contenido de tu portapapeles se ha convertido exitosamente a Markdown.",
-    "description": "Intro text when content is present"
+    "message": "El contenido de tu portapapeles se ha convertido exitosamente a Markdown."
   },
   "welcomeEditorModesTitle": {
-    "message": "Modos de Editor",
-    "description": "Heading for editor modes section"
+    "message": "Modos del editor"
   },
   "welcomeEditorModesIntro": {
-    "message": "Usa los botones de la barra de herramientas para cambiar vistas:",
-    "description": "Intro for editor modes"
+    "message": "Usa los botones de la barra de herramientas para cambiar de vista:"
   },
   "modeRichTextAlt": {
-    "message": "Texto Enriquecido",
-    "description": "Alt text for Rich Text mode icon"
+    "message": "Texto enriquecido"
   },
   "modeRichTextLabel": {
-    "message": "Texto Enriquecido:",
-    "description": "Label for Rich Text mode"
+    "message": "Texto enriquecido:"
   },
   "modeRichTextDesc": {
-    "message": "Edición de contenido rico.",
-    "description": "Description for Rich Text mode"
+    "message": "Edición de texto enriquecido."
   },
   "modeDiffAlt": {
-    "message": "Diferencias",
-    "description": "Alt text for Diff mode icon"
+    "message": "Diferencias"
   },
   "modeDiffLabel": {
-    "message": "Diferencias:",
-    "description": "Label for Diff mode"
+    "message": "Diferencias:"
   },
   "modeDiffDesc": {
-    "message": "Comparar cambios.",
-    "description": "Description for Diff mode"
+    "message": "Comparar cambios."
   },
   "modeMarkdownAlt": {
-    "message": "Markdown",
-    "description": "Alt text for Markdown mode icon"
+    "message": "Markdown"
   },
   "modeMarkdownLabel": {
-    "message": "Markdown:",
-    "description": "Label for Markdown mode"
+    "message": "Markdown:"
   },
   "modeMarkdownDesc": {
-    "message": "Editar texto plano.",
-    "description": "Description for Markdown mode"
+    "message": "Editar código Markdown."
   },
   "welcomePersistenceTitle": {
-    "message": "Persistencia de Datos",
-    "description": "Heading for persistence section"
+    "message": "Persistencia de datos"
   },
   "welcomePersistencePart1": {
-    "message": "El contenido se guarda en el ",
-    "description": "First part of persistence text"
+    "message": "El contenido se guarda en el "
   },
   "welcomePersistencePart2": {
-    "message": "almacenamiento de sesión",
-    "description": "Bolded part of persistence text"
+    "message": "almacenamiento local"
   },
   "welcomePersistencePart3": {
-    "message": " de tu navegador. Se borrará cuando cierres la pestaña o el navegador.",
-    "description": "Last part of persistence text"
+    "message": " de tu navegador. Se borrará cuando cierres la pestaña o el navegador."
   },
   "welcomeGetStartedBtn": {
-    "message": "Empezar",
-    "description": "Label for the close button"
+    "message": "Empezar"
   },
   "welcomePoweredByPrefix": {
-    "message": "Impulsado por ",
-    "description": "Prefix for the powered by link"
+    "message": "Impulsado por "
   }
 }

@@ -1,21 +1,21 @@
 {
   "appName": {
-    "message": "Convertisseur de Presse-papiers Markdown"
+    "message": "CheeseCloth - Convertisseur de presse-papiers Markdown"
   },
   "appDesc": {
     "message": "Transformez instantanément le contenu formaté en Markdown prêt pour l'IA."
   },
   "actionTitle": {
-    "message": "Convertir le Presse-papiers en Markdown"
+    "message": "Convertir le presse-papiers en Markdown"
   },
   "popupTitle": {
-    "message": "Markdown pour Prompts IA"
+    "message": "Markdown pour l'IA"
   },
   "popupSubtitle": {
     "message": "Transformez le contenu formaté en Markdown pour les outils d'IA."
   },
   "modifyClipboardBtn": {
-    "message": "Convertir Presse-papiers"
+    "message": "Convertir le presse-papiers"
   },
   "modifiedTextPlaceholder": {
     "message": "Le contenu converti apparaîtra ici..."
@@ -57,86 +57,66 @@
     "message": "Ajouter un lien"
   },
   "poweredBy": {
-    "message": "Propulsé par MDXEditor"
+    "message": "Basé sur MDXEditor"
   },
   "welcomeModalTitle": {
-    "message": "Bienvenue dans MD Clipboard Editor",
-    "description": "Title of the welcome modal"
+    "message": "Bienvenue sur CheeseCloth : Convertisseur Markdown"
   },
   "welcomeIntroEmpty": {
-    "message": "Vous avez ouvert l'éditeur directement. Vous pouvez écrire en Markdown ou coller du contenu ici.",
-    "description": "Intro text when editor is empty"
+    "message": "Vous avez ouvert l'éditeur directement. Vous pouvez écrire en Markdown ou coller du contenu ici."
   },
   "welcomeIntroContent": {
-    "message": "Le contenu de votre presse-papiers a été converti avec succès en Markdown.",
-    "description": "Intro text when content is present"
+    "message": "Le contenu de votre presse-papiers a été converti avec succès en Markdown."
   },
   "welcomeEditorModesTitle": {
-    "message": "Modes d'Éditeur",
-    "description": "Heading for editor modes section"
+    "message": "Modes d'éditeur"
   },
   "welcomeEditorModesIntro": {
-    "message": "Utilisez les boutons de la barre d'outils pour changer de vue :",
-    "description": "Intro for editor modes"
+    "message": "Utilisez les boutons de la barre d'outils pour changer de vue :"
   },
   "modeRichTextAlt": {
-    "message": "Texte Riche",
-    "description": "Alt text for Rich Text mode icon"
+    "message": "Texte enrichi"
   },
   "modeRichTextLabel": {
-    "message": "Texte Riche :",
-    "description": "Label for Rich Text mode"
+    "message": "Texte enrichi :"
   },
   "modeRichTextDesc": {
-    "message": "Édition de contenu riche.",
-    "description": "Description for Rich Text mode"
+    "message": "Édition de contenu enrichi."
   },
   "modeDiffAlt": {
-    "message": "Diff",
-    "description": "Alt text for Diff mode icon"
+    "message": "Diff"
   },
   "modeDiffLabel": {
-    "message": "Diff :",
-    "description": "Label for Diff mode"
+    "message": "Diff :"
   },
   "modeDiffDesc": {
-    "message": "Comparer les modifications.",
-    "description": "Description for Diff mode"
+    "message": "Comparer les modifications."
   },
   "modeMarkdownAlt": {
-    "message": "Markdown",
-    "description": "Alt text for Markdown mode icon"
+    "message": "Markdown"
   },
   "modeMarkdownLabel": {
-    "message": "Markdown :",
-    "description": "Label for Markdown mode"
+    "message": "Markdown :"
   },
   "modeMarkdownDesc": {
-    "message": "Éditer le texte brut.",
-    "description": "Description for Markdown mode"
+    "message": "Éditer le texte brut."
   },
   "welcomePersistenceTitle": {
-    "message": "Persistance des Données",
-    "description": "Heading for persistence section"
+    "message": "Persistance des données"
   },
   "welcomePersistencePart1": {
-    "message": "Le contenu est enregistré dans le ",
-    "description": "First part of persistence text"
+    "message": "Le contenu est enregistré dans le "
   },
   "welcomePersistencePart2": {
-    "message": "stockage de session",
-    "description": "Bolded part of persistence text"
+    "message": "stockage de session"
   },
   "welcomePersistencePart3": {
-    "message": " de votre navigateur. Il sera effacé à la fermeture de l'onglet ou du navigateur.",
-    "description": "Last part of persistence text"
+    "message": " de votre navigateur. Il sera effacé à la fermeture de l'onglet ou du navigateur."
   },
   "welcomeGetStartedBtn": {
-    "message": "Commencer",
-    "description": "Label for the close button"
+    "message": "Commencer"
   },
   "welcomePoweredByPrefix": {
-    "message": "Propulsé par ",
-    "description": "Prefix for the powered by link"
+    "message": "Basé sur "
   }
 }

@@ -12,7 +12,7 @@ h1 {
 }
 
 button {
-  background-color: #4caf50;
+  background-color: #f57c00;
   border: none;
   color: white;
   padding: 4px 10px;
@@ -43,7 +43,7 @@ button {
 }
 
 .floating-button-container .iconbutton:hover {
-  background-color: rgba(76, 175, 80, 0.1);
+  background-color: rgba(245, 124, 0, 0.1);
 }
 
 .floating-button-container .iconbuttonsvg {
@@ -67,7 +67,7 @@ button {
 }
 
 .floating-button-container-bottom .iconbutton:hover {
-  background-color: rgba(76, 175, 80, 0.1);
+  background-color: rgba(245, 124, 0, 0.1);
 }
 
 .floating-button-container-bottom .iconbuttonsvg {
@@ -88,7 +88,7 @@ button {
   font-size: 1.2em;
   line-height: 1.2;
   transform: translateX(-50%); /* Center horizontally */
-  background-color: #cdffcd; /* Example background color */
+  background-color: #ffe0b2; /* Example background color */
   color: #2e2e2e;
   padding: 10px 20px;
   border-radius: 5px;
