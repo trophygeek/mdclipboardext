@@ -1,18 +1,18 @@
 {
   "appName": {
-    "message": "Markdown 剪贴板转换器"
+    "message": "CheeseCloth - 富文本转 Markdown"
   },
   "appDesc": {
-    "message": "即时将格式化内容转换为适用于 AI 的 Markdown。"
+    "message": "立即将富文本内容转换为适合 AI 使用的 Markdown。"
   },
   "actionTitle": {
-    "message": "将剪贴板转换为 Markdown"
+    "message": "将剪贴板内容转换为 Markdown"
   },
   "popupTitle": {
-    "message": "用于 AI 提示的 Markdown"
+    "message": "用于 AI 提示词的 Markdown"
   },
   "popupSubtitle": {
-    "message": "将格式化内容转换为适用于 AI 工具的 Markdown。"
+    "message": "将富文本内容转换为 Markdown，以便用于 AI 提示词。"
   },
   "modifyClipboardBtn": {
     "message": "转换剪贴板"
@@ -27,16 +27,16 @@
     "message": "清除内容"
   },
   "notifyMarkdownDetected": {
-    "message": "检测到 Markdown。使用右上角的按钮进行编辑。"
+    "message": "检测到 Markdown 文本。请使用右上角的按钮进行编辑。"
   },
   "notifyNoRichText": {
-    "message": "未找到格式化内容。"
+    "message": "未找到富文本内容。"
   },
   "notifyNoRichTextDetails": {
-    "message": "仅找到纯文本。请先复制格式化内容（如表格）。"
+    "message": "仅发现纯文本。请先复制带有格式的内容（如表格）。"
   },
   "notifyAlreadyConverted": {
-    "message": "未找到任何内容。是否已转换？"
+    "message": "未找到内容。可能已经转换过了？"
   },
   "notifyNoTextDetails": {
     "message": "剪贴板为空。请先复制一些内容。"
@@ -45,7 +45,7 @@
     "message": "Markdown 已复制到剪贴板！"
   },
   "notifyErrorPrefix": {
-    "message": "无法处理剪贴板。"
+    "message": "无法处理剪贴板内容。"
   },
   "toolbar_bold": {
     "message": "粗体"
@@ -57,86 +57,66 @@
     "message": "添加链接"
   },
   "poweredBy": {
-    "message": "基于 MDXEditor"
+    "message": "由 MDXEditor 提供支持"
   },
   "welcomeModalTitle": {
-    "message": "欢迎使用 MD Clipboard Editor",
-    "description": "Title of the welcome modal"
+    "message": "欢迎使用 CheeseCloth：富文本转 Markdown 转换器"
   },
   "welcomeIntroEmpty": {
-    "message": "您已直接打开编辑器。您可以在此处编写 Markdown 或粘贴内容。",
-    "description": "Intro text when editor is empty"
+    "message": "您已直接打开编辑器。您可以在此编写 Markdown 或粘贴内容。"
   },
   "welcomeIntroContent": {
-    "message": "您的剪贴板内容已成功转换为 Markdown。",
-    "description": "Intro text when content is present"
+    "message": "您的剪贴板内容已成功转换为 Markdown。"
   },
   "welcomeEditorModesTitle": {
-    "message": "编辑器模式",
-    "description": "Heading for editor modes section"
+    "message": "编辑器模式"
   },
   "welcomeEditorModesIntro": {
-    "message": "使用工具栏中的按钮切换视图：",
-    "description": "Intro for editor modes"
+    "message": "使用工具栏中的按钮切换视图："
   },
   "modeRichTextAlt": {
-    "message": "富文本",
-    "description": "Alt text for Rich Text mode icon"
+    "message": "富文本"
   },
   "modeRichTextLabel": {
-    "message": "富文本：",
-    "description": "Label for Rich Text mode"
+    "message": "富文本："
   },
   "modeRichTextDesc": {
-    "message": "富文本编辑。",
-    "description": "Description for Rich Text mode"
+    "message": "编辑富文本内容。"
   },
   "modeDiffAlt": {
-    "message": "差异",
-    "description": "Alt text for Diff mode icon"
+    "message": "差异对比"
   },
   "modeDiffLabel": {
-    "message": "差异：",
-    "description": "Label for Diff mode"
+    "message": "差异对比："
   },
   "modeDiffDesc": {
-    "message": "比较更改。",
-    "description": "Description for Diff mode"
+    "message": "比较变更内容。"
   },
   "modeMarkdownAlt": {
-    "message": "Markdown",
-    "description": "Alt text for Markdown mode icon"
+    "message": "Markdown"
   },
   "modeMarkdownLabel": {
-    "message": "Markdown：",
-    "description": "Label for Markdown mode"
+    "message": "Markdown："
   },
   "modeMarkdownDesc": {
-    "message": "编辑纯文本。",
-    "description": "Description for Markdown mode"
+    "message": "编辑纯文本。"
   },
   "welcomePersistenceTitle": {
-    "message": "数据持久化",
-    "description": "Heading for persistence section"
+    "message": "数据持久性"
   },
   "welcomePersistencePart1": {
-    "message": "内容保存在浏览器的",
-    "description": "First part of persistence text"
+    "message": "内容保存在浏览器的 "
   },
   "welcomePersistencePart2": {
-    "message": "会话存储",
-    "description": "Bolded part of persistence text"
+    "message": "会话存储 (Session Storage)"
   },
   "welcomePersistencePart3": {
-    "message": "中。关闭标签页或浏览器时将被清除。",
-    "description": "Last part of persistence text"
+    "message": " 中。当您关闭标签页或浏览器时，内容将被清除。"
   },
   "welcomeGetStartedBtn": {
-    "message": "开始使用",
-    "description": "Label for the close button"
+    "message": "开始使用"
   },
   "welcomePoweredByPrefix": {
-    "message": "基于 ",
-    "description": "Prefix for the powered by link"
+    "message": "技术支持： "
   }
 }

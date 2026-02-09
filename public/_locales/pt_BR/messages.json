@@ -1,18 +1,18 @@
 {
   "appName": {
-    "message": "Conversor de Área de Transferência Markdown"
+    "message": "CheeseCloth: Conteúdo Formatado → Markdown"
   },
   "appDesc": {
     "message": "Transforme instantaneamente conteúdo formatado em Markdown pronto para IA."
   },
   "actionTitle": {
-    "message": "Converter Área de Transferência para Markdown"
+    "message": "Converter Área de Transferência em Markdown"
   },
   "popupTitle": {
     "message": "Markdown para Prompts de IA"
   },
   "popupSubtitle": {
-    "message": "Transforme conteúdo formatado em Markdown para ferramentas de IA."
+    "message": "Converta conteúdo formatado em Markdown para prompts de IA."
   },
   "modifyClipboardBtn": {
     "message": "Converter Área de Transferência"
@@ -21,7 +21,7 @@
     "message": "O conteúdo convertido aparecerá aqui..."
   },
   "openEditorAria": {
-    "message": "Abrir editor em uma nova guia"
+    "message": "Abrir editor em nova guia"
   },
   "clearAria": {
     "message": "Limpar conteúdo"
@@ -36,7 +36,7 @@
     "message": "Apenas texto simples encontrado. Copie conteúdo formatado (como tabelas) primeiro."
   },
   "notifyAlreadyConverted": {
-    "message": "Nada encontrado. Já convertido?"
+    "message": "Nada encontrado. O texto já foi convertido?"
   },
   "notifyNoTextDetails": {
     "message": "A área de transferência está vazia. Copie algum conteúdo primeiro."
@@ -57,86 +57,66 @@
     "message": "Adicionar Link"
   },
   "poweredBy": {
-    "message": "Com tecnologia MDXEditor"
+    "message": "Desenvolvido por MDXEditor"
   },
   "welcomeModalTitle": {
-    "message": "Bem-vindo ao MD Clipboard Editor",
-    "description": "Title of the welcome modal"
+    "message": "Bem-vindo ao CheeseCloth: Conversor de Conteúdo Formatado para Markdown"
   },
   "welcomeIntroEmpty": {
-    "message": "Você abriu o editor diretamente. Você pode escrever Markdown ou colar conteúdo aqui.",
-    "description": "Intro text when editor is empty"
+    "message": "Você abriu o editor diretamente. Você pode escrever em Markdown ou colar conteúdo aqui."
   },
   "welcomeIntroContent": {
-    "message": "O conteúdo da sua área de transferência foi convertido com sucesso para Markdown.",
-    "description": "Intro text when content is present"
+    "message": "O conteúdo da sua área de transferência foi convertido para Markdown com sucesso."
   },
   "welcomeEditorModesTitle": {
-    "message": "Modos de Editor",
-    "description": "Heading for editor modes section"
+    "message": "Modos de Edição"
   },
   "welcomeEditorModesIntro": {
-    "message": "Use os botões na barra de ferramentas para alternar as visualizações:",
-    "description": "Intro for editor modes"
+    "message": "Use os botões na barra de ferramentas para alternar as visualizações:"
   },
   "modeRichTextAlt": {
-    "message": "Rich Text",
-    "description": "Alt text for Rich Text mode icon"
+    "message": "Texto Formatado"
   },
   "modeRichTextLabel": {
-    "message": "Rich Text:",
-    "description": "Label for Rich Text mode"
+    "message": "Texto Formatado:"
   },
   "modeRichTextDesc": {
-    "message": "Edição de conteúdo rico.",
-    "description": "Description for Rich Text mode"
+    "message": "Edição de conteúdo rico."
   },
   "modeDiffAlt": {
-    "message": "Diff",
-    "description": "Alt text for Diff mode icon"
+    "message": "Comparação (Diff)"
   },
   "modeDiffLabel": {
-    "message": "Diff:",
-    "description": "Label for Diff mode"
+    "message": "Comparação:"
   },
   "modeDiffDesc": {
-    "message": "Comparar alterações.",
-    "description": "Description for Diff mode"
+    "message": "Compare as alterações."
   },
   "modeMarkdownAlt": {
-    "message": "Markdown",
-    "description": "Alt text for Markdown mode icon"
+    "message": "Texto Markdown"
   },
   "modeMarkdownLabel": {
-    "message": "Markdown:",
-    "description": "Label for Markdown mode"
+    "message": "Texto Markdown:"
   },
   "modeMarkdownDesc": {
-    "message": "Editar texto simples.",
-    "description": "Description for Markdown mode"
+    "message": "Edite texto simples."
   },
   "welcomePersistenceTitle": {
-    "message": "Persistência de Dados",
-    "description": "Heading for persistence section"
+    "message": "Persistência de Dados"
   },
   "welcomePersistencePart1": {
-    "message": "O conteúdo é salvo no ",
-    "description": "First part of persistence text"
+    "message": "O conteúdo é salvo no "
   },
   "welcomePersistencePart2": {
-    "message": "armazenamento de sessão",
-    "description": "Bolded part of persistence text"
+    "message": "armazenamento da sessão"
   },
   "welcomePersistencePart3": {
-    "message": " do seu navegador. Ele será limpo quando você fechar a guia ou o navegador.",
-    "description": "Last part of persistence text"
+    "message": " do seu navegador. Ele será limpo quando você fechar a guia ou o navegador."
   },
   "welcomeGetStartedBtn": {
-    "message": "Começar",
-    "description": "Label for the close button"
+    "message": "Começar"
   },
   "welcomePoweredByPrefix": {
-    "message": "Com tecnologia ",
-    "description": "Prefix for the powered by link"
+    "message": "Desenvolvido por "
   }
 }

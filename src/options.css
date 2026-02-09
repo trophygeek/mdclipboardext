@@ -10,7 +10,7 @@ body {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: #007bff;
+  background-color: #f57c00;
   color: white;
   border: none;
   font-size: 14px;
@@ -26,7 +26,7 @@ body {
 }
 
 .help-button:hover {
-  background-color: #0056b3;
+  background-color: #ef6c00;
   transform: scale(1.1);
   opacity: 1;
 }

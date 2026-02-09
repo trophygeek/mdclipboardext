@@ -1,22 +1,22 @@
 {
   "appName": {
-    "message": "Markdown Clipboard Converter",
+    "message": "CheeseCloth-Rich Content→Markdown Text",
     "description": "The name of the application"
   },
   "appDesc": {
-    "message": "Instantly turn formatted content into AI-ready Markdown.",
+    "message": "Instantly turn formatted content into AI-ready Markdown Text.",
     "description": "The description of the application"
   },
   "actionTitle": {
-    "message": "Convert Clipboard to Markdown",
+    "message": "Convert Clipboard to Markdown Text",
     "description": "Title of the action button"
   },
   "popupTitle": {
-    "message": "Markdown for AI Prompts",
+    "message": "Markdown Text for AI Prompts",
     "description": "Main title in the popup"
   },
   "popupSubtitle": {
-    "message": "Turn formatted content into Markdown for AI tools.",
+    "message": "Turn formatted content into Markdown Text for AI prompts.",
     "description": "Subtitle description in the popup"
   },
   "modifyClipboardBtn": {
@@ -36,7 +36,7 @@
     "description": "Aria label for the clear button"
   },
   "notifyMarkdownDetected": {
-    "message": "Markdown detected. Edit using the top right button.",
+    "message": "Markdown text detected. Edit using the top right button.",
     "description": "Notification when markdown is found"
   },
   "notifyNoRichText": {
@@ -80,15 +80,15 @@
     "description": "Credit to MDXEditor"
   },
   "welcomeModalTitle": {
-    "message": "Welcome to MD Clipboard Editor",
+    "message": "Welcome to CheeseCloth: Rich Content to Markdown Text Converter",
     "description": "Title of the welcome modal"
   },
   "welcomeIntroEmpty": {
-    "message": "You've opened the editor directly. You can write Markdown or paste content here.",
+    "message": "You've opened the editor directly. You can write Markdown Text or paste content here.",
     "description": "Intro text when editor is empty"
   },
   "welcomeIntroContent": {
-    "message": "Your clipboard content has been successfully converted to Markdown.",
+    "message": "Your clipboard content has been successfully converted to Markdown Text.",
     "description": "Intro text when content is present"
   },
   "welcomeEditorModesTitle": {
@@ -124,11 +124,11 @@
     "description": "Description for Diff mode"
   },
   "modeMarkdownAlt": {
-    "message": "Markdown",
+    "message": "Markdown Text",
     "description": "Alt text for Markdown mode icon"
   },
   "modeMarkdownLabel": {
-    "message": "Markdown:",
+    "message": "Markdown Text:",
     "description": "Label for Markdown mode"
   },
   "modeMarkdownDesc": {

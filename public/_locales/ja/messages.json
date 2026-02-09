@@ -1,9 +1,9 @@
 {
   "appName": {
-    "message": "Markdownクリップボードコンバーター"
+    "message": "CheeseCloth - Markdownクリップボード変換ツール"
   },
   "appDesc": {
-    "message": "フォーマットされたコンテンツをAI対応のMarkdownに即座に変換します。"
+    "message": "書式付きテキストを、AIに最適なMarkdownへ即座に変換します。"
   },
   "actionTitle": {
     "message": "クリップボードをMarkdownに変換"
@@ -12,13 +12,13 @@
     "message": "AIプロンプト用Markdown"
   },
   "popupSubtitle": {
-    "message": "フォーマットされたコンテンツをAIツール用のMarkdownに変換します。"
+    "message": "書式付きテキストをAIツール向けのMarkdownに変換します。"
   },
   "modifyClipboardBtn": {
     "message": "クリップボードを変換"
   },
   "modifiedTextPlaceholder": {
-    "message": "変換されたコンテンツがここに表示されます..."
+    "message": "ここに変換されたコンテンツが表示されます..."
   },
   "openEditorAria": {
     "message": "新しいタブでエディタを開く"
@@ -27,22 +27,22 @@
     "message": "コンテンツを消去"
   },
   "notifyMarkdownDetected": {
-    "message": "Markdownが検出されました。右上のボタンを使用して編集してください。"
+    "message": "Markdownを検出しました。右上のボタンから編集できます。"
   },
   "notifyNoRichText": {
-    "message": "フォーマットされたコンテンツが見つかりませんでした。"
+    "message": "書式付きテキストが見つかりませんでした。"
   },
   "notifyNoRichTextDetails": {
-    "message": "プレーンテキストのみが見つかりました。最初にフォーマットされたコンテンツ（表など）をコピーしてください。"
+    "message": "プレーンテキストのみ検出されました。表などの書式付きコンテンツをコピーしてからお試しください。"
   },
   "notifyAlreadyConverted": {
-    "message": "見つかりません。すでに変換されていますか？"
+    "message": "変換対象が見つかりません。すでにMarkdownに変換済みではありませんか？"
   },
   "notifyNoTextDetails": {
-    "message": "クリップボードが空です。最初にコンテンツをコピーしてください。"
+    "message": "クリップボードが空です。コンテンツをコピーしてから実行してください。"
   },
   "notifySuccess": {
-    "message": "Markdownがクリップボードにコピーされました！"
+    "message": "Markdownをクリップボードにコピーしました！"
   },
   "notifyErrorPrefix": {
     "message": "クリップボードを処理できませんでした。"
@@ -54,89 +54,69 @@
     "message": "斜体"
   },
   "toolbar_link": {
-    "message": "リンクを追加"
+    "message": "リンク"
   },
   "poweredBy": {
-    "message": "MDXEditorを使用"
+    "message": "MDXEditorを採用"
   },
   "welcomeModalTitle": {
-    "message": "MD Clipboard Editorへようこそ",
-    "description": "Title of the welcome modal"
+    "message": "CheeseClothへようこそ: Markdownクリップボード変換ツール"
   },
   "welcomeIntroEmpty": {
-    "message": "エディタを直接開きました。ここでMarkdownを書いたり、コンテンツを貼り付けたりできます。",
-    "description": "Intro text when editor is empty"
+    "message": "エディタを開きました。Markdownの記述や、コンテンツの貼り付けが可能です。"
   },
   "welcomeIntroContent": {
-    "message": "クリップボードの内容がMarkdownに正常に変換されました。",
-    "description": "Intro text when content is present"
+    "message": "クリップボードの内容をMarkdownに変換しました。"
   },
   "welcomeEditorModesTitle": {
-    "message": "エディタモード",
-    "description": "Heading for editor modes section"
+    "message": "エディタモード"
   },
   "welcomeEditorModesIntro": {
-    "message": "ツールバーのボタンを使用してビューを切り替えます：",
-    "description": "Intro for editor modes"
+    "message": "ツールバーのボタンで表示モードを切り替えられます："
   },
   "modeRichTextAlt": {
-    "message": "リッチテキスト",
-    "description": "Alt text for Rich Text mode icon"
+    "message": "リッチテキスト"
   },
   "modeRichTextLabel": {
-    "message": "リッチテキスト：",
-    "description": "Label for Rich Text mode"
+    "message": "リッチテキスト："
   },
   "modeRichTextDesc": {
-    "message": "リッチコンテンツ編集。",
-    "description": "Description for Rich Text mode"
+    "message": "リッチテキスト形式で編集します。"
   },
   "modeDiffAlt": {
-    "message": "差分",
-    "description": "Alt text for Diff mode icon"
+    "message": "差分"
   },
   "modeDiffLabel": {
-    "message": "差分：",
-    "description": "Label for Diff mode"
+    "message": "差分："
   },
   "modeDiffDesc": {
-    "message": "変更を比較。",
-    "description": "Description for Diff mode"
+    "message": "変更内容を比較表示します。"
   },
   "modeMarkdownAlt": {
-    "message": "Markdown",
-    "description": "Alt text for Markdown mode icon"
+    "message": "Markdown"
   },
   "modeMarkdownLabel": {
-    "message": "Markdown：",
-    "description": "Label for Markdown mode"
+    "message": "Markdown："
   },
   "modeMarkdownDesc": {
-    "message": "プレーンテキストを編集。",
-    "description": "Description for Markdown mode"
+    "message": "Markdownソースを直接編集します。"
   },
   "welcomePersistenceTitle": {
-    "message": "データ保持",
-    "description": "Heading for persistence section"
+    "message": "データの保存について"
   },
   "welcomePersistencePart1": {
-    "message": "コンテンツはブラウザの",
-    "description": "First part of persistence text"
+    "message": "コンテンツはブラウザの"
   },
   "welcomePersistencePart2": {
-    "message": "セッションストレージ",
-    "description": "Bolded part of persistence text"
+    "message": "セッションストレージ"
   },
   "welcomePersistencePart3": {
-    "message": "に保存されます。タブまたはブラウザを閉じると消去されます。",
-    "description": "Last part of persistence text"
+    "message": "に保存されます。タブまたはブラウザを閉じると消去されます。"
   },
   "welcomeGetStartedBtn": {
-    "message": "始める",
-    "description": "Label for the close button"
+    "message": "始める"
   },
   "welcomePoweredByPrefix": {
-    "message": "使用： ",
-    "description": "Prefix for the powered by link"
+    "message": "Powered by: "
   }
 }
