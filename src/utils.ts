@@ -32,6 +32,7 @@ export function htmlToMarkdown(htmlString: string): string {
   const markdown = toMarkdown(mdast, {
     extensions: [gfmToMarkdown(), directiveToMarkdown()],
     bullet: "-",
+    emphasis: "_",
     ruleSpaces: true,
   });
 
