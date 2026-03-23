@@ -173,38 +173,40 @@ const Popup: React.FC = () => {
 
   return (
     <div className="popup-container">
-      <h1>{chrome.i18n.getMessage("popupTitle")}</h1>
-      <p>{chrome.i18n.getMessage("popupSubtitle")}</p>
-      <div className="floating-button-container">
-        <button
-          aria-label={chrome.i18n.getMessage("openEditorAria")}
-          onClick={openOptionsClick}
-          className="iconbutton"
-        >
-          <img src={openIconSrc} className="iconbuttonsvg" />
+      <main className="main-content">
+        <h1>{chrome.i18n.getMessage("popupTitle")}</h1>
+        <p>{chrome.i18n.getMessage("popupSubtitle")}</p>
+        <button className="primary-action-btn" onClick={handleCopyModifyPaste}>
+          {chrome.i18n.getMessage("modifyClipboardBtn")}
         </button>
-      </div>
-      <button onClick={handleCopyModifyPaste}>
-        {chrome.i18n.getMessage("modifyClipboardBtn")}
-      </button>
-      <textarea
-        ref={textareaRef}
-        className="modifiedTextArea"
-        value={modifiedText}
-        readOnly
-        placeholder={chrome.i18n.getMessage("modifiedTextPlaceholder")}
-        rows={10}
-        onMouseUp={handleMouseUp}
-      />
-      <div className="floating-button-container-bottom">
+        <textarea
+          ref={textareaRef}
+          className="modifiedTextArea"
+          value={modifiedText}
+          readOnly
+          placeholder={chrome.i18n.getMessage("modifiedTextPlaceholder")}
+          rows={10}
+          onMouseUp={handleMouseUp}
+        />
+      </main>
+      <footer className="footer-actions">
         <button
           aria-label={chrome.i18n.getMessage("clearAria")}
           onClick={clearContentClick}
-          className="iconbutton"
+          className="iconbutton clear-btn"
         >
-          <img src={clearIconSrc} className="iconbuttonsvg" />
+          <img src={clearIconSrc} className="iconbuttonsvg" alt="" />
+          <span>{chrome.i18n.getMessage("clearBtn") || "Clear"}</span>
         </button>
-      </div>
+        <button
+          aria-label={chrome.i18n.getMessage("openEditorAria")}
+          onClick={openOptionsClick}
+          className="iconbutton pop-out-btn"
+        >
+          <img src={openIconSrc} className="iconbuttonsvg" alt="" />
+          <span>{chrome.i18n.getMessage("popOutBtn") || "Pop-out"}</span>
+        </button>
+      </footer>
       <div className={`notification ${showNotification ? "show" : "hide"}`}>
         {notificationMessage}
       </div>

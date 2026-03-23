@@ -1,109 +1,149 @@
 body {
-  width: 20em;
-  height: 25em;
-  margin: 0.5rem; /* 8px */
+  width: 23em;
+  margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 25em;
+  background-color: white;
+}
+
+.main-content {
+  flex: 1 1 auto;
+  padding: 1rem 1rem 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
-  font-size: 1.2em;
+  font-size: 1.25em;
   color: navy;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.9em;
 }
 
 button {
-  background-color: #f57c00;
   border: none;
-  color: white;
-  padding: 0.25rem 0.625rem; /* 4px 10px */
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 0.875rem; /* 14px */
   cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.primary-action-btn {
+  background-color: #d67b36;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+
+.primary-action-btn:hover {
+  background-color: #c46d2c;
 }
 
 .modifiedTextArea {
   width: 100%;
-  height: 19em;
-  margin-top: 1em;
+  flex-grow: 1;
+  min-height: 14em;
   resize: vertical;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: #333;
 }
 
-.floating-button-container {
-  position: fixed; /* Makes the element float */
-  top: 0; /* Adjust top distance as needed */
-  right: 0; /* Adjust right distance as needed */
+.modifiedTextArea::placeholder {
+  color: #999;
+}
+
+.footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4f4f5;
+  border-top: 1px solid #e5e7eb;
+  padding: 0.75rem 1rem;
+  position: sticky;
+  bottom: 0;
   z-index: 100;
 }
 
-/* Optional: Style the button itself if needed */
-.floating-button-container .iconbutton {
-  background-color: rgba(0, 0, 0, 0);
+.footer-actions .iconbutton {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: transparent;
+  color: #4b5563;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid transparent;
 }
 
-.floating-button-container .iconbutton:hover {
-  background-color: rgba(245, 124, 0, 0.1);
+.footer-actions .iconbutton.pop-out-btn {
+  background-color: white;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.floating-button-container .iconbuttonsvg {
-  /* Style the SVG icon */
-  width: 1.8em;
-  height: 1.8em;
-  vertical-align: middle;
-  color: black; /* White icon color */
+.footer-actions .iconbutton:hover {
+  background-color: #e5e7eb;
 }
 
-.floating-button-container-bottom {
-  position: fixed; /* Makes the element float */
-  bottom: 0; /* Adjust top distance as needed */
-  left: 0; /* Adjust right distance as needed */
-  z-index: 100;
+.footer-actions .iconbutton.pop-out-btn:hover {
+  background-color: #f9fafb;
 }
 
-/* Optional: Style the button itself if needed */
-.floating-button-container-bottom .iconbutton {
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.floating-button-container-bottom .iconbutton:hover {
-  background-color: rgba(245, 124, 0, 0.1);
-}
-
-.floating-button-container-bottom .iconbuttonsvg {
-  /* Style the SVG icon */
-  width: 1.2em;
-  height: 1.2em;
-  vertical-align: middle;
-  color: rgba(0, 0, 0, 0.6); /* White icon color */
+.footer-actions .iconbuttonsvg {
+  width: 1.1em;
+  height: 1.1em;
+  color: currentColor;
 }
 
 /* Notification.css */
 .notification {
   position: fixed;
-  bottom: 1.25rem; /* 20px */
+  bottom: 4rem; /* Adjusted to stay clear of the sticky footer */
   left: 50%;
   width: 70%;
   font-weight: bolder;
-  font-size: 1.2em;
+  font-size: 1.1em;
   line-height: 1.2;
-  transform: translateX(-50%); /* Center horizontally */
-  background-color: #ffe0b2; /* Example background color */
+  transform: translateX(-50%);
+  background-color: #ffe0b2;
   color: #2e2e2e;
-  padding: 0.625rem 1.25rem; /* 10px 20px */
-  border-radius: 0.3125rem; /* 5px */
-  opacity: 0; /* Initially hidden */
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease; /* Smooth transitions */
+  padding: 0.625rem 1.25rem;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 200;
 }
 
 .notification.show {
   opacity: 1;
-  transform: translateX(-50%) translateY(0); /* Move up into view */
+  transform: translateX(-50%) translateY(0);
 }
 
 .notification.hide {
   opacity: 0;
-  transform: translateX(-50%) translateY(50vh); /* Move down out of view */
+  transform: translateX(-50%) translateY(20px);
 }
