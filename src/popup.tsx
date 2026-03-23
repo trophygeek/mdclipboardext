@@ -2,9 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { htmlToMarkdown, isMarkdownText } from "./utils";
 
-// @ts-expect-error - SVG imports not typed
 import openIconSrc from "../public/openNewWindowIcon.svg";
-// @ts-expect-error - SVG imports not typed
 import clearIconSrc from "../public/clearbutton.svg";
 import "./popup.css";
 

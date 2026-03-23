@@ -210,18 +210,14 @@ const OptionsPage: React.FC<OptionsProps> = () => {
     defaultValue?: string,
     interpolations?: Record<string, unknown>
   ): string => {
-    // We sanitize the key because chrome.i18n keys must not contain dots usually,
-    // but mdxeditor keys look like 'toolbar.bold'.
-    // chrome.i18n allows dots, but let's be safe and ensure we map if needed.
-    // For now, we try to fetch as is.
-
-    // Note: chrome.i18n.getMessage returns "" on failure and sets runtime.lastError
+    // We sanitize the key because chrome.i18n keys must not contain dots usually.
     const sanitizedKey = key.replace(/\./g, "_");
     let translated = chrome.i18n.getMessage(sanitizedKey) || defaultValue || key;
 
     if (interpolations) {
       Object.entries(interpolations).forEach(([k, v]) => {
-        translated = translated.replace(new RegExp(`{{${k}}}`, "g"), String(v));
+        // Use split/join to avoid browser RegExp parsing issues with literal curly braces
+        translated = translated.split(`{{${k}}}`).join(String(v));
       });
     }
 
