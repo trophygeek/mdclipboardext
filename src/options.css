@@ -3,20 +3,32 @@ body {
   margin: 0;
 }
 
+/* 
+ * Architecturally correct solution for High DPI Chrome Extension scaling.
+ * Up-scale typography parameters using `rem` native units to naturally bypass
+ * the `body { font-size: 75% }` Chrome extension hack and maintain root a11y support.
+ */
+.mdxeditor-fullscreen {
+  --text-base: 1.125rem;
+  --text-sm: 1rem;
+  --text-xs: 0.875rem;
+  --text-xxs: 0.75rem;
+}
+
 .help-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 24px;
-  height: 24px;
+  bottom: 1.25rem; /* 20px */
+  right: 1.25rem; /* 20px */
+  width: 1.5rem; /* 24px */
+  height: 1.5rem; /* 24px */
   border-radius: 50%;
   background-color: #f57c00;
   color: white;
   border: none;
-  font-size: 14px;
+  font-size: 0.875rem; /* 14px */
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2); /* 0 2px 5px */
   display: flex;
   align-items: center;
   justify-content: center;
