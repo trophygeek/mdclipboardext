@@ -133,5 +133,11 @@
   },
   "toolbar_blockTypeSelect_selectBlockTypeTooltip": {
     "message": "Blocktyp auswählen"
+  },
+  "clearBtn": {
+    "message": "Löschen"
+  },
+  "popOutBtn": {
+    "message": "Vollbild-Editor öffnen"
   }
 }

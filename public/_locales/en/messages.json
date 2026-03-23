@@ -178,5 +178,13 @@
   "welcomePoweredByPrefix": {
     "message": "Powered by ",
     "description": "Prefix for the powered by link"
+  },
+  "clearBtn": {
+    "message": "Clear",
+    "description": "Label for the clear button"
+  },
+  "popOutBtn": {
+    "message": "Open full editor",
+    "description": "Label for the pop-out button"
   }
 }

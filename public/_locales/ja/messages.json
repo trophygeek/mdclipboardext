@@ -133,5 +133,11 @@
   },
   "toolbar_blockTypeSelect_selectBlockTypeTooltip": {
     "message": "ブロックの種類を選択"
+  },
+  "clearBtn": {
+    "message": "クリア"
+  },
+  "popOutBtn": {
+    "message": "フルエディタを開く"
   }
 }

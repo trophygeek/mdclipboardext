@@ -133,5 +133,11 @@
   },
   "toolbar_blockTypeSelect_selectBlockTypeTooltip": {
     "message": "选择区块类型"
+  },
+  "clearBtn": {
+    "message": "清空"
+  },
+  "popOutBtn": {
+    "message": "打开完整编辑器"
   }
 }
