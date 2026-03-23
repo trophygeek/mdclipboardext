@@ -118,5 +118,20 @@
   },
   "welcomePoweredByPrefix": {
     "message": "Basiert auf "
+  },
+  "toolbar_blockTypes_heading": {
+    "message": "Überschrift {{level}}"
+  },
+  "toolbar_blockTypes_paragraph": {
+    "message": "Absatz"
+  },
+  "toolbar_blockTypes_quote": {
+    "message": "Zitat"
+  },
+  "toolbar_blockTypeSelect_placeholder": {
+    "message": "Blocktyp"
+  },
+  "toolbar_blockTypeSelect_selectBlockTypeTooltip": {
+    "message": "Blocktyp auswählen"
   }
 }

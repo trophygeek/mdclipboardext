@@ -1,10 +1,7 @@
 import React from "react";
 import "./WelcomeModal.css";
-// @ts-expect-error - SVG imports not typed
 import richTextIcon from "../public/mode-rich-text.svg";
-// @ts-expect-error - SVG imports not typed
 import diffIcon from "../public/mode-diff.svg";
-// @ts-expect-error - SVG imports not typed
 import markdownIcon from "../public/mode-markdown.svg";
 
 interface WelcomeModalProps {

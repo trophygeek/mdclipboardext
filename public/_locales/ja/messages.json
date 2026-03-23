@@ -118,5 +118,20 @@
   },
   "welcomePoweredByPrefix": {
     "message": "Powered by: "
+  },
+  "toolbar_blockTypes_heading": {
+    "message": "見出し {{level}}"
+  },
+  "toolbar_blockTypes_paragraph": {
+    "message": "段落"
+  },
+  "toolbar_blockTypes_quote": {
+    "message": "引用"
+  },
+  "toolbar_blockTypeSelect_placeholder": {
+    "message": "ブロックの種類"
+  },
+  "toolbar_blockTypeSelect_selectBlockTypeTooltip": {
+    "message": "ブロックの種類を選択"
   }
 }

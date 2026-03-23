@@ -118,5 +118,20 @@
   },
   "welcomePoweredByPrefix": {
     "message": "技术支持： "
+  },
+  "toolbar_blockTypes_heading": {
+    "message": "标题 {{level}}"
+  },
+  "toolbar_blockTypes_paragraph": {
+    "message": "段落"
+  },
+  "toolbar_blockTypes_quote": {
+    "message": "引用"
+  },
+  "toolbar_blockTypeSelect_placeholder": {
+    "message": "区块类型"
+  },
+  "toolbar_blockTypeSelect_selectBlockTypeTooltip": {
+    "message": "选择区块类型"
   }
 }

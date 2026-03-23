@@ -118,5 +118,20 @@
   },
   "welcomePoweredByPrefix": {
     "message": "Desenvolvido por "
+  },
+  "toolbar_blockTypes_heading": {
+    "message": "Cabeçalho {{level}}"
+  },
+  "toolbar_blockTypes_paragraph": {
+    "message": "Parágrafo"
+  },
+  "toolbar_blockTypes_quote": {
+    "message": "Citação"
+  },
+  "toolbar_blockTypeSelect_placeholder": {
+    "message": "Tipo de bloco"
+  },
+  "toolbar_blockTypeSelect_selectBlockTypeTooltip": {
+    "message": "Selecionar tipo de bloco"
   }
 }

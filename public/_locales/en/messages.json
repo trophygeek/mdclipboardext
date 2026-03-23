@@ -75,6 +75,26 @@
     "message": "Add Link",
     "description": "Toolbar link button"
   },
+  "toolbar_blockTypes_heading": {
+    "message": "Heading {{level}}",
+    "description": "Toolbar block type for heading levels"
+  },
+  "toolbar_blockTypes_paragraph": {
+    "message": "Paragraph",
+    "description": "Toolbar block type for paragraph"
+  },
+  "toolbar_blockTypes_quote": {
+    "message": "Quote",
+    "description": "Toolbar block type for quote"
+  },
+  "toolbar_blockTypeSelect_placeholder": {
+    "message": "Block type",
+    "description": "Placeholder for block type select dropdown"
+  },
+  "toolbar_blockTypeSelect_selectBlockTypeTooltip": {
+    "message": "Select block type",
+    "description": "Tooltip for selecting block type"
+  },
   "poweredBy": {
     "message": "Powered by MDXEditor",
     "description": "Credit to MDXEditor"
