@@ -106,7 +106,7 @@ const OptionsPage: React.FC<OptionsProps> = () => {
   // This value is immutable after initial load - it represents the baseline for diffing
   useEffect(() => {
     let isMounted = true;
-    getInitialMarkdown().then((markdown) => {
+    getInitialMarkdown().then((markdown: string | undefined): void => {
       if (isMounted && markdown !== undefined) {
         setInitialMarkdown(markdown);
       }
@@ -119,7 +119,7 @@ const OptionsPage: React.FC<OptionsProps> = () => {
   // Load and sync editor content with storage
   useEffect(() => {
     // Coordinate initial load and welcome check to determine auto-focus
-    const init = async () => {
+    const init = async (): Promise<void> => {
         const [loadResult, storageResult] = await Promise.all([
             loadSaved(),
             chrome.storage.local.get("hasSeenWelcome")
@@ -205,20 +205,30 @@ const OptionsPage: React.FC<OptionsProps> = () => {
     powershell: "PowerShell",
   };
   
-  const mdxTranslation = (key: string, defaultValue?: string): string => {
-     // We sanitize the key because chrome.i18n keys must not contain dots usually, 
-     // but mdxeditor keys look like 'toolbar.bold'. 
-     // chrome.i18n allows dots, but let's be safe and ensure we map if needed.
-     // For now, we try to fetch as is.
-     
-     // Note: chrome.i18n.getMessage returns "" on failure and sets runtime.lastError
-     const sanitizedKey = key.replace(/\./g, "_");
-     const translated = chrome.i18n.getMessage(sanitizedKey);
-     if (translated) return translated;
-     return defaultValue || key;
+  const mdxTranslation = (
+    key: string,
+    defaultValue?: string,
+    interpolations?: Record<string, unknown>
+  ): string => {
+    // We sanitize the key because chrome.i18n keys must not contain dots usually,
+    // but mdxeditor keys look like 'toolbar.bold'.
+    // chrome.i18n allows dots, but let's be safe and ensure we map if needed.
+    // For now, we try to fetch as is.
+
+    // Note: chrome.i18n.getMessage returns "" on failure and sets runtime.lastError
+    const sanitizedKey = key.replace(/\./g, "_");
+    let translated = chrome.i18n.getMessage(sanitizedKey) || defaultValue || key;
+
+    if (interpolations) {
+      Object.entries(interpolations).forEach(([k, v]) => {
+        translated = translated.replace(new RegExp(`{{${k}}}`, "g"), String(v));
+      });
+    }
+
+    return translated;
   };
 
-  const closeWelcome = () => {
+  const closeWelcome = (): void => {
     setShowWelcome(false);
     chrome.storage.local.set({ hasSeenWelcome: true });
     if (isEditorEmpty) {
