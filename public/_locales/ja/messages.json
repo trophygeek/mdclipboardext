@@ -135,11 +135,9 @@
     "message": "ブロックの種類を選択"
   },
   "clearBtn": {
-    "message": "クリア",
-    "description": "Label for the clear button"
+    "message": "クリア"
   },
   "popOutBtn": {
-    "message": "フルエディタを開く",
-    "description": "Label for the pop-out button"
+    "message": "フルエディタを開く"
   }
 }

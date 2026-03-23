@@ -135,11 +135,9 @@
     "message": "Seleccionar tipo de bloque"
   },
   "clearBtn": {
-    "message": "Borrar",
-    "description": "Label for the clear button"
+    "message": "Borrar"
   },
   "popOutBtn": {
-    "message": "Abrir editor completo",
-    "description": "Label for the pop-out button"
+    "message": "Abrir editor completo"
   }
 }
