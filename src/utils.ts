@@ -29,12 +29,15 @@ export function htmlToMarkdown(htmlString: string): string {
   const mdast = toMdast(hast);
 
   // Serialize MDAST to Markdown string
-  const markdown = toMarkdown(mdast, {
+  let markdown = toMarkdown(mdast, {
     extensions: [gfmToMarkdown(), directiveToMarkdown()],
     bullet: "-",
     emphasis: "_",
     ruleSpaces: true,
   });
+
+  // Remove empty directives
+  markdown = markdown.replace(/<!---->\n/g, "\n");
 
   return markdown;
 }
