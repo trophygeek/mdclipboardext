@@ -4,8 +4,8 @@
   "version": "1.0.10",
   "type": "module",
   "scripts": {
-    "dev": "tsc --sourceMap --inlineSources && vite build --sourcemap=inline",
-    "build": "tsc && vite build",
+    "dev": "tsc --sourceMap --inlineSources && vite build -c vite.popup.config.ts --sourcemap=inline && vite build -c vite.options.config.ts --sourcemap=inline",
+    "build": "tsc && vite build -c vite.popup.config.ts && vite build -c vite.options.config.ts",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
