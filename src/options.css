@@ -13,6 +13,19 @@ body {
   --text-sm: 1rem;
   --text-xs: 0.875rem;
   --text-xxs: 0.75rem;
+  
+  /* Force inheritance of our up-scaled var into Lexical's contenteditable */
+  font-size: var(--text-base);
+}
+
+/* 
+ * Lexical's contentEditable hardcodes padding to 12px. 
+ * Override with scaled `rem` units to prevent the boundaries from feeling 
+ * disproportionately tight when text scales up on High-DPI displays.
+ */
+.mdxeditor-fullscreen [contenteditable="true"].mdxeditor-root-contenteditable,
+.mdxeditor-fullscreen [data-lexical-editor="true"] {
+  padding: 1rem !important;
 }
 
 .help-button {
