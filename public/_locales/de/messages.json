@@ -44,6 +44,9 @@
   "notifySuccess": {
     "message": "Markdown in die Zwischenablage kopiert!"
   },
+  "notifySuccessHtml": {
+    "message": "Vereinfachte Formatierung in die Zwischenablage kopiert!"
+  },
   "notifyErrorPrefix": {
     "message": "Konnte Zwischenablage nicht verarbeiten."
   },
@@ -139,5 +142,17 @@
   },
   "popOutBtn": {
     "message": "Vollbild-Editor öffnen"
+  },
+  "actionToMarkdownBtn": {
+    "message": "Zu Markdown"
+  },
+  "actionToMarkdownTooltip": {
+    "message": "Zwischenablage in Markdown-Text konvertieren"
+  },
+  "actionToCleanHtmlBtn": {
+    "message": "Vereinfacht kopieren"
+  },
+  "actionToCleanHtmlTooltip": {
+    "message": "Zwischenablage in vereinfachte Formatierung konvertieren"
   }
 }

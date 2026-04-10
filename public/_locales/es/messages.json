@@ -44,6 +44,9 @@
   "notifySuccess": {
     "message": "¡Markdown copiado al portapapeles!"
   },
+  "notifySuccessHtml": {
+    "message": "¡Formato simplificado copiado al portapapeles!"
+  },
   "notifyErrorPrefix": {
     "message": "No se pudo procesar el portapapeles."
   },
@@ -139,5 +142,17 @@
   },
   "popOutBtn": {
     "message": "Abrir editor completo"
+  },
+  "actionToMarkdownBtn": {
+    "message": "A Markdown"
+  },
+  "actionToMarkdownTooltip": {
+    "message": "Convertir el contenido del portapapeles a texto Markdown"
+  },
+  "actionToCleanHtmlBtn": {
+    "message": "Copiar simplificado"
+  },
+  "actionToCleanHtmlTooltip": {
+    "message": "Convertir el contenido del portapapeles a formato simplificado"
   }
 }

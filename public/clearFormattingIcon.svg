@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Capital T for text -->
+  <path d="M4 7V4h12v3"></path>
+  <path d="M10 4v16"></path>
+  <path d="M6 20h8"></path>
+  <!-- Small x for clear/remove -->
+  <line x1="16" y1="16" x2="22" y2="22"></line>
+  <line x1="22" y1="16" x2="16" y2="22"></line>
+</svg>

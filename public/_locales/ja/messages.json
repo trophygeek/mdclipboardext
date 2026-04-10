@@ -44,6 +44,9 @@
   "notifySuccess": {
     "message": "Markdownをクリップボードにコピーしました！"
   },
+  "notifySuccessHtml": {
+    "message": "シンプルな書式でクリップボードにコピーされました！"
+  },
   "notifyErrorPrefix": {
     "message": "クリップボードを処理できませんでした。"
   },
@@ -139,5 +142,17 @@
   },
   "popOutBtn": {
     "message": "フルエディタを開く"
+  },
+  "actionToMarkdownBtn": {
+    "message": "Markdownへ"
+  },
+  "actionToMarkdownTooltip": {
+    "message": "クリップボードの内容をMarkdownテキストに変換"
+  },
+  "actionToCleanHtmlBtn": {
+    "message": "シンプルにコピー"
+  },
+  "actionToCleanHtmlTooltip": {
+    "message": "クリップボードの内容をシンプルな書式に変換"
   }
 }

@@ -1,6 +1,8 @@
 import { fromHtml } from "hast-util-from-html";
 import { toMarkdown } from "mdast-util-to-markdown";
 import { toMdast } from "hast-util-to-mdast";
+import { toHast } from "mdast-util-to-hast";
+import { toHtml } from "hast-util-to-html";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { gfmToMarkdown, gfmFromMarkdown } from "mdast-util-gfm";
 import { directive } from "micromark-extension-directive";
@@ -84,4 +86,67 @@ export function isMarkdownText(text: string): boolean {
     console.log(error);
     return false;
   }
+}
+
+/**
+ * Converts an HTML string into Clean Basic HTML.
+ * Uses the MDAST pipeline to strip out bloat.
+ *
+ * @param htmlString The bloated HTML string to clean.
+ * @returns Clean, simplified HTML string.
+ */
+export function htmlToCleanHtml(htmlString: string): string {
+  if (!htmlString || htmlString.trim() === "") {
+    return "";
+  }
+
+  // Parse HTML into HAST (Hypertext Abstract Syntax Tree)
+  const hast = fromHtml(htmlString, { fragment: true });
+
+  // Transform HAST to MDAST (Markdown Abstract Syntax Tree) to strip bloat
+  const mdast = toMdast(hast);
+
+  // Transform MDAST back to HAST (Clean HAST)
+  // Disable common behaviors that might inject positional or unneeded data if necessary
+  const cleanHast = toHast(mdast);
+
+  if (!cleanHast) {
+    return "";
+  }
+
+  // Serialize Clean HAST to HTML string
+  const cleanHtml = toHtml(cleanHast as Parameters<typeof toHtml>[0]);
+
+  return cleanHtml;
+}
+
+/**
+ * Converts a Markdown string into Clean Basic HTML.
+ * Uses the MDAST pipeline.
+ *
+ * @param markdown The Markdown string.
+ * @returns Clean, simplified HTML string.
+ */
+export function markdownToCleanHtml(markdown: string): string {
+  if (!markdown || markdown.trim() === "") {
+    return "";
+  }
+
+  // Parse Markdown into MDAST
+  const mdast = fromMarkdown(markdown, {
+    extensions: [directive()],
+    mdastExtensions: [gfmFromMarkdown(), directiveFromMarkdown()]
+  });
+
+  // Transform MDAST to HAST (Clean HAST)
+  const cleanHast = toHast(mdast);
+
+  if (!cleanHast) {
+    return "";
+  }
+
+  // Serialize Clean HAST to HTML string
+  const cleanHtml = toHtml(cleanHast as Parameters<typeof toHtml>[0]);
+
+  return cleanHtml;
 }
