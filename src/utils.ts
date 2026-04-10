@@ -37,7 +37,7 @@ export function htmlToMarkdown(htmlString: string): string {
   });
 
   // Remove empty directives
-  markdown = markdown.replace(/<!---->\n/g, "\n");
+  markdown = markdown.replace(/<!---->/g, "").replace(/\n{3,}/g, "\n\n");
 
   return markdown;
 }
