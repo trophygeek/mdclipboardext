@@ -44,6 +44,9 @@
   "notifySuccess": {
     "message": "Markdown 已复制到剪贴板！"
   },
+  "notifySuccessHtml": {
+    "message": "简化格式已复制到剪贴板！"
+  },
   "notifyErrorPrefix": {
     "message": "无法处理剪贴板内容。"
   },
@@ -139,5 +142,17 @@
   },
   "popOutBtn": {
     "message": "打开完整编辑器"
+  },
+  "actionToMarkdownBtn": {
+    "message": "转为 Markdown"
+  },
+  "actionToMarkdownTooltip": {
+    "message": "将剪贴板内容转换为 Markdown 文本"
+  },
+  "actionToCleanHtmlBtn": {
+    "message": "复制简化格式"
+  },
+  "actionToCleanHtmlTooltip": {
+    "message": "将剪贴板内容转换为简化格式"
   }
 }

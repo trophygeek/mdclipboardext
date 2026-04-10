@@ -59,6 +59,10 @@
     "message": "Markdown copied to clipboard!",
     "description": "Success notification"
   },
+  "notifySuccessHtml": {
+    "message": "Simplified formatting copied to clipboard!",
+    "description": "Success notification for HTML conversion"
+  },
   "notifyErrorPrefix": {
     "message": "Couldn't process clipboard.",
     "description": "Error notification prefix"
@@ -186,5 +190,21 @@
   "popOutBtn": {
     "message": "Open full editor",
     "description": "Label for the pop-out button"
+  },
+  "actionToMarkdownBtn": {
+    "message": "To Markdown",
+    "description": "Button to convert clipboard into Markdown text"
+  },
+  "actionToMarkdownTooltip": {
+    "message": "Convert clipboard contents to Markdown text",
+    "description": "Tooltip for the To Markdown button"
+  },
+  "actionToCleanHtmlBtn": {
+    "message": "Copy Simplified",
+    "description": "Button to convert clipboard into simple formatted text"
+  },
+  "actionToCleanHtmlTooltip": {
+    "message": "Convert clipboard contents to simplified formatting",
+    "description": "Tooltip for the To Clean HTML button"
   }
 }

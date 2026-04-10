@@ -44,6 +44,9 @@
   "notifySuccess": {
     "message": "Markdown copiado para a área de transferência!"
   },
+  "notifySuccessHtml": {
+    "message": "Formatação simplificada copiada para a área de transferência!"
+  },
   "notifyErrorPrefix": {
     "message": "Não foi possível processar a área de transferência."
   },
@@ -139,5 +142,17 @@
   },
   "popOutBtn": {
     "message": "Abrir editor completo"
+  },
+  "actionToMarkdownBtn": {
+    "message": "Para Markdown"
+  },
+  "actionToMarkdownTooltip": {
+    "message": "Converter o conteúdo da área de transferência para texto Markdown"
+  },
+  "actionToCleanHtmlBtn": {
+    "message": "Copiar Simplificado"
+  },
+  "actionToCleanHtmlTooltip": {
+    "message": "Converter o conteúdo da área de transferência para formatação simplificada"
   }
 }

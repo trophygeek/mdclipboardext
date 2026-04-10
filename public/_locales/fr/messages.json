@@ -44,6 +44,9 @@
   "notifySuccess": {
     "message": "Markdown copié dans le presse-papiers !"
   },
+  "notifySuccessHtml": {
+    "message": "Mise en forme simplifiée copiée dans le presse-papiers !"
+  },
   "notifyErrorPrefix": {
     "message": "Impossible de traiter le presse-papiers."
   },
@@ -139,5 +142,17 @@
   },
   "popOutBtn": {
     "message": "Ouvrir l'éditeur complet"
+  },
+  "actionToMarkdownBtn": {
+    "message": "Vers Markdown"
+  },
+  "actionToMarkdownTooltip": {
+    "message": "Convertir le contenu du presse-papiers en texte Markdown"
+  },
+  "actionToCleanHtmlBtn": {
+    "message": "Copier simplifié"
+  },
+  "actionToCleanHtmlTooltip": {
+    "message": "Convertir le contenu du presse-papiers avec une mise en forme simplifiée"
   }
 }

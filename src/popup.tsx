@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
-import { htmlToMarkdown, isMarkdownText } from "./utils";
+import { htmlToMarkdown, markdownToCleanHtml } from "./utils";
 
 import openIconSrc from "../public/openNewWindowIcon.svg";
 import clearIconSrc from "../public/clearbutton.svg";
+import appIconSrc from "../public/icon48.png";
+import clearFormatIconSrc from "../public/clearFormattingIcon.svg";
 import "./popup.css";
 
 const Popup: React.FC = () => {
@@ -72,89 +74,64 @@ const Popup: React.FC = () => {
     });
   }, []);
 
-  const handleCopyModifyPaste = async (): Promise<void> => {
+  const handleConversion = async (targetFormat: "markdown" | "cleanHtml"): Promise<void> => {
     try {
       const clipboardContents = await navigator.clipboard.read();
+      
+      let sourceMarkdown = "";
+      let hasHtml = false;
+      let hasMarkdownFromSession = false;
 
-      // Helper function to handle markdown display (without clipboard write)
-      const displayMarkdown = (markdownText: string): void => {
-        setModifiedText(markdownText);
-        chrome.storage.session.set({ currentMarkdown: markdownText }, () => {
-          showNotificationMsg(
-            chrome.i18n.getMessage("notifyMarkdownDetected"),
-          );
-          handleSave(markdownText);
-        });
-      };
+      // Extract HTML text if present
+      const clipboardHtmlItem = clipboardContents.find((s) => s.types.includes("text/html"));
+      if (clipboardHtmlItem) {
+        const blob = await clipboardHtmlItem.getType("text/html");
+        const htmlText = (await blob?.text()) ?? "";
+        if (htmlText) {
+          hasHtml = true;
+          sourceMarkdown = htmlToMarkdown(htmlText);
+        }
+      }
 
-      // Check for markdown MIME types first
-      const markdownItem = clipboardContents.find(
-        (s) =>
-          s.types.includes("text/markdown") ||
-          s.types.includes("text/x-markdown"),
-      );
-      if (markdownItem) {
-        const markdownType =
-          markdownItem.types.find((t) => t.includes("markdown")) ??
-          "text/plain";
-        const blob = await markdownItem.getType(markdownType);
-        const markdownText = (await blob?.text()) ?? "";
-        if (markdownText) {
-          displayMarkdown(markdownText);
+      // If no valid HTML found, rely solely on our existing session state
+      if (!hasHtml) {
+        if (modifiedText.trim() && modifiedText !== chrome.i18n.getMessage("notifyNoRichTextDetails") && modifiedText !== chrome.i18n.getMessage("notifyNoTextDetails")) {
+          hasMarkdownFromSession = true;
+          sourceMarkdown = modifiedText;
+        } else {
+          showNotificationMsg(chrome.i18n.getMessage("notifyNoRichText"));
+          setModifiedText(chrome.i18n.getMessage("notifyNoRichTextDetails"));
           return;
         }
       }
 
-      // Check for HTML
-      const clipboardItem = clipboardContents.find((s) =>
-        s.types.includes("text/html"),
-      );
-      if (!clipboardItem) {
-        // Check if plain text is markdown
-        const plainTextItem = clipboardContents.find((s) =>
-          s.types.includes("text/plain"),
-        );
-        if (plainTextItem) {
-          const blob = await plainTextItem.getType("text/plain");
-          const plainText = (await blob?.text()) ?? "";
-          if (plainText && isMarkdownText(plainText)) {
-            displayMarkdown(plainText);
-            return;
-          }
-        }
-        showNotificationMsg(
-          chrome.i18n.getMessage("notifyAlreadyConverted"),
-        );
-        return;
-      }
-      const blob = await clipboardItem.getType("text/html");
-      const htmlText = (await blob?.text()) ?? "";
-
-      if (htmlText === "") {
+      if (!sourceMarkdown.trim()) {
         showNotificationMsg(chrome.i18n.getMessage("notifyNoRichText"));
-        setModifiedText(
-          chrome.i18n.getMessage("notifyNoRichTextDetails"),
-        );
+        setModifiedText(chrome.i18n.getMessage("notifyNoTextDetails"));
         return;
       }
 
-      // --- Convert HTML to Markdown ---
-      const markdownText = htmlToMarkdown(htmlText);
-      if (markdownText === "") {
-        showNotificationMsg(chrome.i18n.getMessage("notifyNoRichText"));
-        setModifiedText(
-          chrome.i18n.getMessage("notifyNoTextDetails"),
-        );
-        return;
+      // 1. Text area should ONLY show markdown
+      setModifiedText(sourceMarkdown);
+
+      // 2. Output to clipboard based on targetFormat
+      if (targetFormat === "markdown") {
+        await navigator.clipboard.writeText(sourceMarkdown);
+      } else {
+        const cleanHtmlText = markdownToCleanHtml(sourceMarkdown);
+        const outputBlob = new Blob([cleanHtmlText], { type: "text/html" });
+        const plainBlob = new Blob([sourceMarkdown], { type: "text/plain" });
+        const item = new ClipboardItem({
+          "text/html": outputBlob,
+          "text/plain": plainBlob
+        });
+        await navigator.clipboard.write([item]);
       }
 
-      setModifiedText(markdownText);
-      await navigator.clipboard.writeText(markdownText);
-      chrome.storage.session.set({ currentMarkdown: markdownText }, () => {
-        showNotificationMsg(
-          chrome.i18n.getMessage("notifySuccess"),
-        );
-        handleSave(markdownText);
+      chrome.storage.session.set({ currentMarkdown: sourceMarkdown }, () => {
+        const successMessageKey = targetFormat === "markdown" ? "notifySuccess" : "notifySuccessHtml";
+        showNotificationMsg(chrome.i18n.getMessage(successMessageKey));
+        handleSave(sourceMarkdown);
       });
     } catch (err) {
       console.error("Failed to read/write clipboard:", err);
@@ -176,9 +153,24 @@ const Popup: React.FC = () => {
       <main className="main-content">
         <h1>{chrome.i18n.getMessage("popupTitle")}</h1>
         <p>{chrome.i18n.getMessage("popupSubtitle")}</p>
-        <button className="primary-action-btn" onClick={handleCopyModifyPaste}>
-          {chrome.i18n.getMessage("modifyClipboardBtn")}
-        </button>
+        <div className="split-action-bar">
+          <button 
+            className="split-action-btn" 
+            onClick={() => handleConversion("markdown")}
+            title={chrome.i18n.getMessage("actionToMarkdownTooltip")}
+          >
+            <img src={appIconSrc} alt="" className="split-action-icon" />
+            {chrome.i18n.getMessage("actionToMarkdownBtn") || "To Markdown"}
+          </button>
+          <button 
+            className="split-action-btn" 
+            onClick={() => handleConversion("cleanHtml")}
+            title={chrome.i18n.getMessage("actionToCleanHtmlTooltip")}
+          >
+            <img src={clearFormatIconSrc} alt="" className="split-action-icon" />
+            {chrome.i18n.getMessage("actionToCleanHtmlBtn") || "To Clean HTML"}
+          </button>
+        </div>
         <textarea
           ref={textareaRef}
           className="modifiedTextArea"
