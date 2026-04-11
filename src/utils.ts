@@ -10,6 +10,7 @@ import {
   directiveFromMarkdown,
   directiveToMarkdown,
 } from "mdast-util-directive";
+import { gfm } from "micromark-extension-gfm";
 
 /**
  * Converts an HTML string to Markdown.
@@ -60,7 +61,7 @@ export function isMarkdownText(text: string): boolean {
   try {
     // Parse using the same extensions used for conversion to ensure consistency
     const tree = fromMarkdown(text, {
-      extensions: [directive()],
+      extensions: [directive(), gfm()],
       mdastExtensions: [gfmFromMarkdown(), directiveFromMarkdown()],
     });
 
@@ -134,7 +135,7 @@ export function markdownToCleanHtml(markdown: string): string {
 
   // Parse Markdown into MDAST
   const mdast = fromMarkdown(markdown, {
-    extensions: [directive()],
+    extensions: [directive(), gfm()],
     mdastExtensions: [gfmFromMarkdown(), directiveFromMarkdown()]
   });
 
