@@ -1,7 +1,7 @@
 {
   "name": "mdclipboardext",
   "private": true,
-  "version": "1.1.12",
+  "version": "1.1.13",
   "type": "module",
   "scripts": {
     "dev": "tsc --sourceMap --inlineSources && vite build -c vite.popup.config.ts --sourcemap=inline && vite build -c vite.options.config.ts --sourcemap=inline",
