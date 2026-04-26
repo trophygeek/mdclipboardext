@@ -12,7 +12,7 @@
     "message": "Markdown para Prompts de IA"
   },
   "popupSubtitle": {
-    "message": "Converta conteúdo formatado em Markdown para prompts de IA."
+    "message": "Ler o conteúdo da sua área de transferência e converter qualquer formatação HTML ou Rich Text para o formato selecionado abaixo."
   },
   "modifyClipboardBtn": {
     "message": "Converter Área de Transferência"
@@ -144,15 +144,15 @@
     "message": "Abrir editor completo"
   },
   "actionToMarkdownBtn": {
-    "message": "Para Markdown"
+    "message": "Markdown"
   },
   "actionToMarkdownTooltip": {
-    "message": "Converter o conteúdo da área de transferência para texto Markdown"
+    "message": "Converter o texto rico da área de transferência para Markdown."
   },
   "actionToCleanHtmlBtn": {
-    "message": "Copiar Simplificado"
+    "message": "HTML Limpo"
   },
   "actionToCleanHtmlTooltip": {
-    "message": "Converter o conteúdo da área de transferência para formatação simplificada"
+    "message": "Converter o texto rico da área de transferência em um HTML simplificado sem cores ou fontes."
   }
 }
