@@ -12,7 +12,7 @@
     "message": "用于 AI 提示词的 Markdown"
   },
   "popupSubtitle": {
-    "message": "将富文本内容转换为 Markdown，以便用于 AI 提示词。"
+    "message": "读取剪贴板内容，并将任何HTML或富文本格式转换为您在下方选择的格式。"
   },
   "modifyClipboardBtn": {
     "message": "转换剪贴板"
@@ -144,15 +144,15 @@
     "message": "打开完整编辑器"
   },
   "actionToMarkdownBtn": {
-    "message": "转为 Markdown"
+    "message": "Markdown"
   },
   "actionToMarkdownTooltip": {
-    "message": "将剪贴板内容转换为 Markdown 文本"
+    "message": "将剪贴板中的富文本转换为Markdown格式。"
   },
   "actionToCleanHtmlBtn": {
-    "message": "复制简化格式"
+    "message": "纯净HTML"
   },
   "actionToCleanHtmlTooltip": {
-    "message": "将剪贴板内容转换为简化格式"
+    "message": "去除剪贴板富文本中的颜色和字体信息，转换为纯净的HTML。"
   }
 }

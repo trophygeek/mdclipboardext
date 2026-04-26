@@ -6,3 +6,4 @@
 *.zip
 pnpm-lock.yaml
 /.reflex
+tsconfig.tsbuildinfo

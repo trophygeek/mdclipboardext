@@ -74,16 +74,20 @@ const Popup: React.FC = () => {
     });
   }, []);
 
-  const handleConversion = async (targetFormat: "markdown" | "cleanHtml"): Promise<void> => {
+  const handleConversion = async (
+    targetFormat: "markdown" | "cleanHtml",
+  ): Promise<void> => {
     try {
       const clipboardContents = await navigator.clipboard.read();
-      
+
       let sourceMarkdown = "";
       let hasHtml = false;
       let hasMarkdownFromSession = false;
 
       // Extract HTML text if present
-      const clipboardHtmlItem = clipboardContents.find((s) => s.types.includes("text/html"));
+      const clipboardHtmlItem = clipboardContents.find((s) =>
+        s.types.includes("text/html"),
+      );
       if (clipboardHtmlItem) {
         const blob = await clipboardHtmlItem.getType("text/html");
         const htmlText = (await blob?.text()) ?? "";
@@ -95,7 +99,11 @@ const Popup: React.FC = () => {
 
       // If no valid HTML found, rely solely on our existing session state
       if (!hasHtml) {
-        if (modifiedText.trim() && modifiedText !== chrome.i18n.getMessage("notifyNoRichTextDetails") && modifiedText !== chrome.i18n.getMessage("notifyNoTextDetails")) {
+        if (
+          modifiedText.trim() &&
+          modifiedText !== chrome.i18n.getMessage("notifyNoRichTextDetails") &&
+          modifiedText !== chrome.i18n.getMessage("notifyNoTextDetails")
+        ) {
           hasMarkdownFromSession = true;
           sourceMarkdown = modifiedText;
         } else {
@@ -123,19 +131,22 @@ const Popup: React.FC = () => {
         const plainBlob = new Blob([sourceMarkdown], { type: "text/plain" });
         const item = new ClipboardItem({
           "text/html": outputBlob,
-          "text/plain": plainBlob
+          "text/plain": plainBlob,
         });
         await navigator.clipboard.write([item]);
       }
 
       chrome.storage.session.set({ currentMarkdown: sourceMarkdown }, () => {
-        const successMessageKey = targetFormat === "markdown" ? "notifySuccess" : "notifySuccessHtml";
+        const successMessageKey =
+          targetFormat === "markdown" ? "notifySuccess" : "notifySuccessHtml";
         showNotificationMsg(chrome.i18n.getMessage(successMessageKey));
         handleSave(sourceMarkdown);
       });
     } catch (err) {
       console.error("Failed to read/write clipboard:", err);
-      showNotificationMsg(`${chrome.i18n.getMessage("notifyErrorPrefix")} ${err}.`);
+      showNotificationMsg(
+        `${chrome.i18n.getMessage("notifyErrorPrefix")} ${err}.`,
+      );
     }
   };
 
@@ -154,21 +165,25 @@ const Popup: React.FC = () => {
         <h1>{chrome.i18n.getMessage("popupTitle")}</h1>
         <p>{chrome.i18n.getMessage("popupSubtitle")}</p>
         <div className="split-action-bar">
-          <button 
-            className="split-action-btn" 
+          <button
+            className="split-action-btn"
+            onClick={() => handleConversion("cleanHtml")}
+            title={chrome.i18n.getMessage("actionToCleanHtmlTooltip")}
+          >
+            <img
+              src={clearFormatIconSrc}
+              alt=""
+              className="split-action-icon"
+            />
+            {chrome.i18n.getMessage("actionToCleanHtmlBtn") || "To Clean HTML"}
+          </button>
+          <button
+            className="split-action-btn"
             onClick={() => handleConversion("markdown")}
             title={chrome.i18n.getMessage("actionToMarkdownTooltip")}
           >
             <img src={appIconSrc} alt="" className="split-action-icon" />
             {chrome.i18n.getMessage("actionToMarkdownBtn") || "To Markdown"}
-          </button>
-          <button 
-            className="split-action-btn" 
-            onClick={() => handleConversion("cleanHtml")}
-            title={chrome.i18n.getMessage("actionToCleanHtmlTooltip")}
-          >
-            <img src={clearFormatIconSrc} alt="" className="split-action-icon" />
-            {chrome.i18n.getMessage("actionToCleanHtmlBtn") || "To Clean HTML"}
           </button>
         </div>
         <textarea

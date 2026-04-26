@@ -12,7 +12,7 @@
     "message": "Markdown para prompts de IA"
   },
   "popupSubtitle": {
-    "message": "Transforma contenido enriquecido en Markdown para herramientas de IA."
+    "message": "Leer el contenido del portapapeles y convertir cualquier formato HTML o texto enriquecido al formato seleccionado a continuación."
   },
   "modifyClipboardBtn": {
     "message": "Convertir portapapeles"
@@ -144,15 +144,15 @@
     "message": "Abrir editor completo"
   },
   "actionToMarkdownBtn": {
-    "message": "A Markdown"
+    "message": "Markdown"
   },
   "actionToMarkdownTooltip": {
-    "message": "Convertir el contenido del portapapeles a texto Markdown"
+    "message": "Convertir el texto enriquecido del portapapeles a Markdown."
   },
   "actionToCleanHtmlBtn": {
-    "message": "Copiar simplificado"
+    "message": "HTML Limpio"
   },
   "actionToCleanHtmlTooltip": {
-    "message": "Convertir el contenido del portapapeles a formato simplificado"
+    "message": "Convertir el texto enriquecido del portapapeles en HTML simplificado sin colores ni fuentes."
   }
 }

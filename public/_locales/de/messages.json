@@ -12,7 +12,7 @@
     "message": "Markdown für KI-Prompts"
   },
   "popupSubtitle": {
-    "message": "Konvertieren Sie formatierten Inhalt in Markdown für KI-Tools."
+    "message": "Lesen Sie den Inhalt der Zwischenablage, und konvertieren Sie HTML- oder Rich-Text-Formatierungen in das gewünschte Format."
   },
   "modifyClipboardBtn": {
     "message": "Zwischenablage konvertieren"
@@ -144,15 +144,15 @@
     "message": "Vollbild-Editor öffnen"
   },
   "actionToMarkdownBtn": {
-    "message": "Zu Markdown"
+    "message": "Markdown"
   },
   "actionToMarkdownTooltip": {
-    "message": "Zwischenablage in Markdown-Text konvertieren"
+    "message": "Konvertiert Rich-Text aus der Zwischenablage in Markdown."
   },
   "actionToCleanHtmlBtn": {
-    "message": "Vereinfacht kopieren"
+    "message": "Reines HTML"
   },
   "actionToCleanHtmlTooltip": {
-    "message": "Zwischenablage in vereinfachte Formatierung konvertieren"
+    "message": "Entfernt Farben und Schriftarten aus dem Rich-Text der Zwischenablage für reines HTML."
   }
 }

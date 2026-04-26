@@ -12,7 +12,7 @@
     "message": "AIプロンプト用Markdown"
   },
   "popupSubtitle": {
-    "message": "書式付きテキストをAIツール向けのMarkdownに変換します。"
+    "message": "クリップボードの内容を読み取り、HTMLやリッチテキストの書式を、以下で選択した形式に変換します。"
   },
   "modifyClipboardBtn": {
     "message": "クリップボードを変換"
@@ -144,15 +144,15 @@
     "message": "フルエディタを開く"
   },
   "actionToMarkdownBtn": {
-    "message": "Markdownへ"
+    "message": "Markdown"
   },
   "actionToMarkdownTooltip": {
-    "message": "クリップボードの内容をMarkdownテキストに変換"
+    "message": "クリップボードのリッチテキストをMarkdownに変換します。"
   },
   "actionToCleanHtmlBtn": {
-    "message": "シンプルにコピー"
+    "message": "クリーンHTML"
   },
   "actionToCleanHtmlTooltip": {
-    "message": "クリップボードの内容をシンプルな書式に変換"
+    "message": "クリップボードのリッチテキストから色やフォント情報を削除し、クリーンなHTMLに変換します。"
   }
 }

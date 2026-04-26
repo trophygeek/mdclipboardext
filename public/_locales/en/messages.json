@@ -16,7 +16,7 @@
     "description": "Main title in the popup"
   },
   "popupSubtitle": {
-    "message": "Turn formatted content into Markdown Text for AI prompts.",
+    "message": "Read the contents of your clipboard, and convert any HTML or Rich Text formatting into the format you select below.",
     "description": "Subtitle description in the popup"
   },
   "modifyClipboardBtn": {
@@ -192,19 +192,19 @@
     "description": "Label for the pop-out button"
   },
   "actionToMarkdownBtn": {
-    "message": "To Markdown",
+    "message": "Markdown",
     "description": "Button to convert clipboard into Markdown text"
   },
   "actionToMarkdownTooltip": {
-    "message": "Convert clipboard contents to Markdown text",
+    "message": "Convert and replace rich text found in your clipboard with markdown formatted text",
     "description": "Tooltip for the To Markdown button"
   },
   "actionToCleanHtmlBtn": {
-    "message": "Copy Simplified",
+    "message": "Clean HTML",
     "description": "Button to convert clipboard into simple formatted text"
   },
   "actionToCleanHtmlTooltip": {
-    "message": "Convert clipboard contents to simplified formatting",
+    "message": "Convert and replace rich text found in your clipboard with a simplified and cleaner rich text removing colors and font information.",
     "description": "Tooltip for the To Clean HTML button"
   }
 }

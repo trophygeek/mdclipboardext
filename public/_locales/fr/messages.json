@@ -12,7 +12,7 @@
     "message": "Markdown pour l'IA"
   },
   "popupSubtitle": {
-    "message": "Transformez le contenu formaté en Markdown pour les outils d'IA."
+    "message": "Lire le contenu de votre presse-papiers et convertir tout formatage HTML ou texte enrichi vers le format sélectionné ci-dessous."
   },
   "modifyClipboardBtn": {
     "message": "Convertir le presse-papiers"
@@ -144,15 +144,15 @@
     "message": "Ouvrir l'éditeur complet"
   },
   "actionToMarkdownBtn": {
-    "message": "Vers Markdown"
+    "message": "Markdown"
   },
   "actionToMarkdownTooltip": {
-    "message": "Convertir le contenu du presse-papiers en texte Markdown"
+    "message": "Convertir le texte enrichi du presse-papiers en Markdown."
   },
   "actionToCleanHtmlBtn": {
-    "message": "Copier simplifié"
+    "message": "HTML Épuré"
   },
   "actionToCleanHtmlTooltip": {
-    "message": "Convertir le contenu du presse-papiers avec une mise en forme simplifiée"
+    "message": "Convertir le texte enrichi du presse-papiers en HTML simplifié sans couleurs ni polices."
   }
 }
